@@ -16,11 +16,7 @@ public class MathExecuter {
     /*Metodo che preleva i primi due numeri dalla cima
     dello stack e inserisce la loro somma*/
     public void stackAdd() throws InsufficientNumbersException{
-//        try{
-//            
-//        }catch(InsufficientNumbersException e){
-//            throw e;
-//        }
+
         
     }
     
