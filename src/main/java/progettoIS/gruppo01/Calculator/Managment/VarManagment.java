@@ -5,7 +5,7 @@ import progettoIS.gruppo01.Calculator.Complex.MathOperations;
 import progettoIS.gruppo01.Calculator.Structures.ComplexStack;
 import progettoIS.gruppo01.Calculator.Structures.VarContainer;
 import progettoIS.gruppo01.Exceptions.FullStackException;
-//import progettoIS.gruppo01.Exceptions.EmptyStackException;
+import progettoIS.gruppo01.Exceptions.EmptyStackException;
 import progettoIS.gruppo01.Exceptions.UninitializedVariableException;
 
 
@@ -28,7 +28,7 @@ public class VarManagment implements InputManagment{
         - String input, stringa di input specificante l'operazione e la variabile su cui eseguirla
     */
     @Override
-    public void execute(String input) throws FullStackException, /*EmptyStackException,*/ UninitializedVariableException {
+    public void execute(String input) throws FullStackException, EmptyStackException, UninitializedVariableException {
         Character operator;
         Character variable;
         
@@ -55,7 +55,7 @@ public class VarManagment implements InputManagment{
     Input:
         - Character var, variabile su cui effettuare l'operazione
     */
-    private void addVar(Character var) throws UninitializedVariableException/*, EmptyStackException*/{
+    private void addVar(Character var) throws UninitializedVariableException, EmptyStackException{
         /*ComplexNum numFromStack, numFromVar;
         
         numFromStack = stackNumeri.remove();
@@ -74,7 +74,7 @@ public class VarManagment implements InputManagment{
     Input:
         - Character var, variabile su cui effettuare l'operazione
     */
-    private void subVar(Character var) throws UninitializedVariableException/*, EmptyStackException*/{
+    private void subVar(Character var) throws UninitializedVariableException, EmptyStackException{
         /*ComplexNum numFromStack, numFromVar;
         
         numFromStack = stackNumeri.remove();
@@ -92,7 +92,7 @@ public class VarManagment implements InputManagment{
     Input:
         - Character var, variabile in cui inserire il numero
     */
-    private void saveVar(Character var) throws FullStackException{
+    private void saveVar(Character var) throws EmptyStackException {
         /*ComplexNum numFromStack;
         
         numFromStack = stackNumeri.remove();

@@ -3,7 +3,7 @@ package progettoIS.gruppo01.Calculator.Managment;
 
 import progettoIS.gruppo01.Exceptions.FullStackException;
 import progettoIS.gruppo01.Exceptions.UninitializedVariableException;
-//import progettoIS.gruppo01.Exceptions.EmptyStackException;
+import progettoIS.gruppo01.Exceptions.EmptyStackException;
 
 
 public interface InputManagment{
@@ -15,5 +15,5 @@ public interface InputManagment{
     Input:
         - String input, stringa di input al comando da eseguire
     */
-    public void execute(String input) throws FullStackException, /*EmptyStackException,*/ UninitializedVariableException;
+    public void execute(String input) throws FullStackException, EmptyStackException, UninitializedVariableException;
 }
