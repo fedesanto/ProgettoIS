@@ -1,41 +1,55 @@
 package progettoIS.gruppo01.Calculator.Complex;
 
+
 public class ComplexNum {
 
-    private double realPart;
-    private double imgPart;
+    private double realPart;        //Parte reale del numero complesso
+    private double imgPart;         //Parte immaginaria del numero complesso
 
-    //Custruttore con parametri di inizializzazione
+    //Costruttore con parametri di inizializzazione
     public ComplexNum(double realPart, double imgPart) {
         this.realPart = realPart;
         this.imgPart = imgPart;
     }
 
+    //Get della parte reale
     public double getRealPart() {
         return realPart;
     }
 
+    //Get della parte immaginaria
     public double getImgPart() {
         return imgPart;
     }
 
     /*
     Convertitore del numero complesso in stringa
-        Restituisce il numero nel formato “a + bj”, “a” o “bj”, 
-        dove a e b sono rispettivamente la parte reale ed immaginaria del numero
+    Restituisce il numero complesso nel formato “a + bj”, “a” o “bj”, 
+    dove a e b sono rispettivamente la parte reale ed immaginaria del numero
+        Input:
+            - nessuno
+        Output:
+            - numero complesso espresso sotto forma di stringa
      */
     @Override
     public String toString() {
-        if (this.imgPart == 0) {
-            return Double.toString(this.realPart);
-
-        } else if (this.realPart == 0) {
-            return Double.toString(this.imgPart) + 'j';
-
-        } else {
-
-            return Double.toString(this.realPart) + Double.toString(this.imgPart) + 'j';
+        if (imgPart == 0) {
+            return Double.toString(realPart);
+        } 
+        else if (realPart == 0) {
+            return Double.toString(imgPart) + 'j';
+        } 
+        else {
+            return Double.toString(realPart) + ' ' + Math.signum(imgPart) + ' ' + Double.toString(Math.abs(imgPart)) + 'j';
         }
+        /*
+          Per trasformare il numero complesso in una stringa nella forma 
+          "a + bj" ho la necessità di prelevare il segno della parte immaginaria
+          e anteporlo tra gli spazi.
+          Per questo motivo bisogna riportare in stringa il valore assoluto della 
+          parte immaginaria, altrimenti nel caso in cui fosse negativa avrei 
+          due volte lo stesso segno ripetuto
+         */
     }
 
     /*
@@ -52,6 +66,22 @@ public class ComplexNum {
         double real = 0;
         double img = 0;
 
+        /*
+        L'espressione regolare di seguito riportata permette di accettare 
+        stringhe nel formato "a + bj", pertanto impone che il numero contenga
+        in successione:
+            1) uno oppure nessun segno meno
+            2) una oppure più cifre
+            3) una oppure nessuna parte decimale, in cui ci sarà un punto
+               seguito da una oppure più cifre dopo la virgola
+            4) uno spazio
+            5) un segno meno oppure un segno più
+            6) uno spazio
+            7) una oppure più cifre
+            8) una oppure nessuna parte decimale, in cui ci sarà un punto
+               seguito da una oppure più cifre dopo la virgola
+            9) il carattere j 
+         */
         if (num.matches("-?\\d+(.\\d+)? [-+] \\d+(.\\d+)?j")) {
             String numbers[] = num.split(" ");
 
@@ -59,6 +89,7 @@ public class ComplexNum {
 
             String sign = numbers[1];
 
+            //tramite il substring riusciamo ad escludere il carattere 'j'
             String stringImg = numbers[2].substring(0, numbers[2].length() - 1);
 
             if (sign.equals("-")) {
@@ -66,20 +97,39 @@ public class ComplexNum {
             } else {
                 img = Double.parseDouble(stringImg);
             }
+        } 
+        /*
+        L'espressione regolare di seguito riportata permette di acccettare 
+        stringhe nel formato "a", pertanto impone che il numero contenga
+        in successione:
+            1) uno oppure nessun segno meno
+            2) una oppure più cifre
+            3) una oppure nessuna parte decimale, in cui ci sarà un punto
+               seguito da una oppure più cifre dopo la virgola
+         */ 
+        else if (num.matches("-?\\d+(.\\d+)?")) {
 
-        } else if (num.matches("-?\\d+(.\\d+)?")) {
-            
             real = Double.parseDouble(num);
-            
-        } else if (num.matches("-?\\d+(.\\d+)?j")) {
-            
+        } 
+         /*
+        L'espressione regolare di seguito riportata permette di acccettare 
+        stringhe nel formato "bj", pertanto impone che il numero contenga
+        in successione:
+            1) uno oppure nessun segno meno
+            2) una oppure più cifre
+            3) una oppure nessuna parte decimale, in cui ci sarà un punto
+               seguito da una oppure più cifre dopo la virgola
+            4) il carattere j 
+         */ 
+        else if (num.matches("-?\\d+(.\\d+)?j")) {
+
             String stringImg = num.substring(0, num.length() - 1);
-            
+
             img = Double.parseDouble(stringImg);
-            
-        } else {
+
+        } else 
             return null;
-        }
+        
 
         return new ComplexNum(real, img);
     }

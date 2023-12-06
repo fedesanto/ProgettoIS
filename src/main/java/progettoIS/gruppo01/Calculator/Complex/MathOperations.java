@@ -2,7 +2,7 @@ package progettoIS.gruppo01.Calculator.Complex;
 
 
 public class MathOperations {
-
+    
     /*
     Metodo che gestisce la somma tra numeri complessi.
     Il numero complesso risultato presenta come parte reale la somma tra
@@ -15,7 +15,7 @@ public class MathOperations {
             - num2, secondo numero complesso
         Output:
             - numero complesso risultante dalla somma
-    */
+     */
     public static ComplexNum somma(ComplexNum num1, ComplexNum num2) {
         double sommaRealPart;
         double sommaImgPart;
@@ -39,7 +39,7 @@ public class MathOperations {
             - num2, secondo numero complesso
         Output:
             - numero complesso risultante dalla sottrazione
-    */
+     */
     public static ComplexNum sottrazione(ComplexNum num1, ComplexNum num2) {
         double sottrRealPart;
         double sottrImgPart;
@@ -54,7 +54,7 @@ public class MathOperations {
     /*
     Metodo che gestisce la divisione tra numeri complessi.
     Intendendo il primo numero complesso come "a + bj" e il secondo come 
-    "c +dj", dove a,b,c,d sono numeri reali, la divisione è data dalla formula:
+    "c + dj", dove a,b,c,d sono numeri reali, la divisione è data dalla formula:
     (ac + bd) / (c^2 + d^2) + j * (bc - ad) / (c^2 + d^2)
     
         Input:
@@ -63,7 +63,7 @@ public class MathOperations {
         Output:
             - numero complesso risultante dalla divisione oppure null se num2 
               è uguale a 0
-    */
+     */
     public static ComplexNum divisione(ComplexNum num1, ComplexNum num2) {
 
         if (num2.getRealPart() == 0 && num2.getImgPart() == 0) {
@@ -89,7 +89,7 @@ public class MathOperations {
     /*
     Metodo che gestisce la moltiplicazione tra numeri complessi.
     Intendendo il primo numero complesso come "a + bj" e il secondo come 
-    "c +dj", dove a,b,c,d sono numeri reali, la moltiplicazione è data dalla formula:
+    "c + dj", dove a,b,c,d sono numeri reali, la moltiplicazione è data dalla formula:
      (ac - bd) + j * (ad + bc)
     
         Input:
@@ -97,7 +97,7 @@ public class MathOperations {
             - num2, secondo numero complesso
         Output:
             - numero complesso risultante dalla moltiplicazione
-    */
+     */
     public static ComplexNum moltiplicazione(ComplexNum num1, ComplexNum num2) {
 
         double a = num1.getRealPart();
@@ -122,11 +122,11 @@ public class MathOperations {
      sqrt((|z| + a) / 2) + j * (sign(b) * sqrt((|z| - a) / 2))
     
         Input:
-            - num, numero complesso su cui effettuare la radice
+            - num, numero complesso su cui effettuare la radice quadrata
         Output:
             - numero complesso risultante dalla radice quadrata (restituisce
               solo il risultato della radice canonica)
-    */
+     */
     public static ComplexNum sqrt(ComplexNum num) {
 
         double sqrtrealPart;
@@ -137,8 +137,8 @@ public class MathOperations {
 
         double module = Math.sqrt(a * a + b * b);
 
-        sqrtrealPart = Math.sqrt((double) (module + a) / 2);
-        sqrtImgPart = Math.sqrt((double) (module - a) / 2) * Math.signum(b);
+        sqrtrealPart = Math.sqrt((double) ((module + a) / 2));
+        sqrtImgPart = Math.sqrt((double) ((module - a) / 2)) * Math.signum(b);
 
         return new ComplexNum(sqrtrealPart, sqrtImgPart);
     }
@@ -150,11 +150,11 @@ public class MathOperations {
             - num, numero complesso su cui effettuare l'inversione di segno
         Output:
             - numero complesso risultante dall'inversione di segno
-    */
+     */
     public static ComplexNum invSegno(ComplexNum num) {
 
-        double invrealPart = - num.getRealPart();
-        double invImgPart = - num.getImgPart();
+        double invrealPart = -num.getRealPart();
+        double invImgPart = -num.getImgPart();
 
         return new ComplexNum(invrealPart, invImgPart);
     }
