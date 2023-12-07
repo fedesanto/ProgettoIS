@@ -24,10 +24,8 @@ public class ComplexStack {
         Costruttore con parametri di inizializzazione.
     */
     public ComplexStack(int maxCapacity) { 
-        
-        this.maxCapacity = 50;
         numeri = new Stack();
-        
+        this.maxCapacity = maxCapacity;
     }
     
     
@@ -44,11 +42,9 @@ public class ComplexStack {
     public void insert(ComplexNum num) throws FullStackException{
         
         if(numeri.size() == maxCapacity){
-            
             throw new FullStackException("FULL STACK ERROR");
-            
         }
-       
+        
         numeri.push(num);
     }
     
@@ -65,9 +61,7 @@ public class ComplexStack {
     public ComplexNum remove() throws EmptyStackException{
         
         if(numeri.isEmpty()){
-            
             throw new EmptyStackException("EMPTY STACK ERROR");
-            
         }
         
         return numeri.pop();
@@ -88,15 +82,10 @@ public class ComplexStack {
     public ComplexNum top() throws EmptyStackException{
         
         if(numeri.isEmpty()){
-            
             throw new EmptyStackException("EMPTY STACK ERROR");
-            
         }
         
-        ComplexNum e = numeri.firstElement();
-        
-        return e;
-        
+        return numeri.peek();
     }
     
     /*
@@ -105,7 +94,6 @@ public class ComplexStack {
         output:
             - numero presenti nello stack, tipo restituito int; 
     */
-    
     public int getSize(){
         
         return numeri.size();

@@ -1,5 +1,6 @@
 package progettoIS.gruppo01.Calculator.Managment;
 
+import progettoIS.gruppo01.Calculator.Complex.ComplexNum;
 import progettoIS.gruppo01.Calculator.Structures.ComplexStack;
 import progettoIS.gruppo01.Exceptions.FullStackException;
 
@@ -23,9 +24,9 @@ public class InsertionManagment implements InputManagment{
     */
     @Override
     public void execute(String input) throws FullStackException{
-        /*
+   
         ComplexNum num = ComplexNum.parseComplex(input); //Creo un nuovo numero complessp
-        stackNumeri.insert(num);        //Lo inserisco all'interno dello stack*/
+        stackNumeri.insert(num);       //Lo inserisco all'interno dello stack*/
     }
     
     

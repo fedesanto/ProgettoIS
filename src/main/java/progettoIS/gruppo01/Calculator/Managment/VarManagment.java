@@ -42,7 +42,7 @@ public class VarManagment implements InputManagment{
             insVar(variable);
         else if(operator.equals('+'))
             addVar(variable);
-        else if(operator.equals('>'))
+        else if(operator.equals('-'))
             subVar(variable);
     }
     
@@ -56,13 +56,12 @@ public class VarManagment implements InputManagment{
         - Character var, variabile su cui effettuare l'operazione
     */
     private void addVar(Character var) throws UninitializedVariableException, EmptyStackException{
-        /*ComplexNum numFromStack, numFromVar;
+        ComplexNum numFromStack, numFromVar;
         
         numFromStack = stackNumeri.remove();
         numFromVar = varContainer.getValue(var);
         
         varContainer.setValue(var, MathOperations.somma(numFromStack, numFromVar));
-        */
     }
     
     
@@ -75,13 +74,12 @@ public class VarManagment implements InputManagment{
         - Character var, variabile su cui effettuare l'operazione
     */
     private void subVar(Character var) throws UninitializedVariableException, EmptyStackException{
-        /*ComplexNum numFromStack, numFromVar;
+        ComplexNum numFromStack, numFromVar;
         
         numFromStack = stackNumeri.remove();
         numFromVar = varContainer.getValue(var);
         
         varContainer.setValue(var, MathOperations.sottrazione(numFromVar, numFromStack));
-        */
     }
     
     
@@ -93,10 +91,10 @@ public class VarManagment implements InputManagment{
         - Character var, variabile in cui inserire il numero
     */
     private void saveVar(Character var) throws EmptyStackException {
-        /*ComplexNum numFromStack;
+        ComplexNum numFromStack;
         
         numFromStack = stackNumeri.remove();
-        varContainer.setValue(var, numFromStack);*/
+        varContainer.setValue(var, numFromStack);
     }
     
     
@@ -108,9 +106,9 @@ public class VarManagment implements InputManagment{
         - Character var, variabile in cui inserire il numero
     */
     private void insVar(Character var) throws UninitializedVariableException, FullStackException{
-        /*ComplexNum numFromVar;
+        ComplexNum numFromVar;
         
         numFromVar = varContainer.getValue(var);
-        stackNumeri.insert(numFromVar);*/
+        stackNumeri.insert(numFromVar);
     }
 }

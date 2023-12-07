@@ -73,13 +73,13 @@ public class ComplexNum {
             1) uno oppure nessun segno meno
             2) una oppure più cifre
             3) una oppure nessuna parte decimale, in cui ci sarà un punto
-               seguito da una oppure più cifre dopo la virgola
+               seguito da una oppure più cifre
             4) uno spazio
             5) un segno meno oppure un segno più
             6) uno spazio
             7) una oppure più cifre
             8) una oppure nessuna parte decimale, in cui ci sarà un punto
-               seguito da una oppure più cifre dopo la virgola
+               seguito da una oppure più cifre
             9) il carattere j 
          */
         if (num.matches("-?\\d+(.\\d+)? [-+] \\d+(.\\d+)?j")) {
@@ -105,10 +105,9 @@ public class ComplexNum {
             1) uno oppure nessun segno meno
             2) una oppure più cifre
             3) una oppure nessuna parte decimale, in cui ci sarà un punto
-               seguito da una oppure più cifre dopo la virgola
+               seguito da una oppure più cifre
          */ 
         else if (num.matches("-?\\d+(.\\d+)?")) {
-
             real = Double.parseDouble(num);
         } 
          /*
@@ -118,7 +117,7 @@ public class ComplexNum {
             1) uno oppure nessun segno meno
             2) una oppure più cifre
             3) una oppure nessuna parte decimale, in cui ci sarà un punto
-               seguito da una oppure più cifre dopo la virgola
+               seguito da una oppure più cifre
             4) il carattere j 
          */ 
         else if (num.matches("-?\\d+(.\\d+)?j")) {

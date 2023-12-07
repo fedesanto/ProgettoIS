@@ -125,7 +125,7 @@ public class MathOperations {
             - num, numero complesso su cui effettuare la radice quadrata
         Output:
             - numero complesso risultante dalla radice quadrata (restituisce
-              solo il risultato della radice canonica)
+              solo il risultato della radice con il segno +)
      */
     public static ComplexNum sqrt(ComplexNum num) {
 
@@ -137,8 +137,8 @@ public class MathOperations {
 
         double module = Math.sqrt(a * a + b * b);
 
-        sqrtrealPart = Math.sqrt((double) ((module + a) / 2));
-        sqrtImgPart = Math.sqrt((double) ((module - a) / 2)) * Math.signum(b);
+        sqrtrealPart = Math.sqrt((module + a) / 2.0);
+        sqrtImgPart = Math.sqrt((module - a) / 2.0) * Math.signum(b);
 
         return new ComplexNum(sqrtrealPart, sqrtImgPart);
     }

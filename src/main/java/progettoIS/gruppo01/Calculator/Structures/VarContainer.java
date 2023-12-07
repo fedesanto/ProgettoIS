@@ -51,9 +51,7 @@ public class VarContainer {
     public ComplexNum getValue(Character var) throws UninitializedVariableException {
         
         if(!variables.containsKey(var)){
-            
-            throw new UninitializedVariableException();
-        
+            throw new UninitializedVariableException("UNINITIALIZED VARIABLE ERROR");
         }
             
         return variables.get(var);
