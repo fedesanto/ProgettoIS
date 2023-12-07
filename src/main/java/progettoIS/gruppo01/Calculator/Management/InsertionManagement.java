@@ -1,14 +1,14 @@
-package progettoIS.gruppo01.Calculator.Managment;
+package progettoIS.gruppo01.Calculator.Management;
 
 import progettoIS.gruppo01.Calculator.Complex.ComplexNum;
 import progettoIS.gruppo01.Calculator.Structures.ComplexStack;
 import progettoIS.gruppo01.Exceptions.FullStackException;
 
 
-public class InsertionManagment implements InputManagment{
+public class InsertionManagement implements InputManagement{
     private ComplexStack stackNumeri;
     
-    public InsertionManagment(ComplexStack stackNumeri){
+    public InsertionManagement(ComplexStack stackNumeri){
         this.stackNumeri = stackNumeri;
     }
     

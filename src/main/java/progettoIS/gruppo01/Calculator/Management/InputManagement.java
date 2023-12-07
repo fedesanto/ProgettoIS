@@ -1,12 +1,12 @@
 
-package progettoIS.gruppo01.Calculator.Managment;
+package progettoIS.gruppo01.Calculator.Management;
 
 import progettoIS.gruppo01.Exceptions.FullStackException;
 import progettoIS.gruppo01.Exceptions.UninitializedVariableException;
 import progettoIS.gruppo01.Exceptions.EmptyStackException;
 
 
-public interface InputManagment{
+public interface InputManagement{
     
     /*
     Metodo che astrae il concetto di esecutore di comando passato

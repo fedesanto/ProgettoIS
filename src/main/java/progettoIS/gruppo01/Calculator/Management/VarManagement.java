@@ -1,4 +1,4 @@
-package progettoIS.gruppo01.Calculator.Managment;
+package progettoIS.gruppo01.Calculator.Management;
 
 import progettoIS.gruppo01.Calculator.Complex.ComplexNum;
 import progettoIS.gruppo01.Calculator.Complex.MathOperations;
@@ -9,11 +9,11 @@ import progettoIS.gruppo01.Exceptions.EmptyStackException;
 import progettoIS.gruppo01.Exceptions.UninitializedVariableException;
 
 
-public class VarManagment implements InputManagment{
+public class VarManagement implements InputManagement{
     private ComplexStack stackNumeri;
     private VarContainer varContainer;
     
-    public VarManagment(ComplexStack stackNumeri, VarContainer varContainer){
+    public VarManagement(ComplexStack stackNumeri, VarContainer varContainer){
         this.stackNumeri = stackNumeri;
         this.varContainer = varContainer;
     }
