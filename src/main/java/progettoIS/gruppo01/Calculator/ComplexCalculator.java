@@ -15,13 +15,13 @@ import progettoIS.gruppo01.Exceptions.UninitializedVariableException;
 
 public class ComplexCalculator {
 
-    private MathExecuter mathExecuter;
-    private StackCommander stackCommander;
-    private VarManagement varManager;
-    private InsertionManagement insertionManager;
+    private MathExecuter mathExecuter;      //Gestore operazioni matematiche
+    private StackCommander stackCommander;  //Gestore comandi su stack
+    private VarManagement varManager;       //Gestore operazioni su variabili
+    private InsertionManagement insertionManager;   //Gestore inserimenti di numeri nello stack
 
-    private final int MAX_CAPACITY = 50;
-    private final int LAST_NUMBERS = 12;
+    private final int MAX_CAPACITY = 50;    //Capacità massima dello stack
+    private final int LAST_NUMBERS = 12;    //Numero di numeri da visualizzare dalla cima dello stack
 
     /*
     Costruttore, 
