@@ -13,6 +13,11 @@ public class VarContainer {
 
     private HashMap <Character, ComplexNum> variables;
 
+    
+    /*  
+        VARCONTAINER
+        Costruttore con parametri di inizializzazione.
+    */
     public VarContainer() {
         
         variables = new HashMap();
@@ -22,6 +27,9 @@ public class VarContainer {
     /*
         Setta il valore di una variabile di cui ne viene indicata il nome, 
         aggiungendola alla collezione se non è mai stata utilizzata.
+        
+        input : 
+            - elemento caratterizzato da una coppia chiave(var) , valore(num);
     */
     public void setValue(Character var, ComplexNum num){
         
@@ -32,10 +40,13 @@ public class VarContainer {
     /*
         Restituisce il numero associato alla variabile indicata. 
         Può lanciare un’eccezione controllata di tipo UninitializedVariableException 
-        nel caso in cui la variabile indicata non fosse stata ancora aggiunta alla collezione
+        nel caso in cui la variabile indicata non fosse stata ancora aggiunta alla collezione.
     
-    output : 
-        - valore associato alla variabile var di tipo ComplexNum
+        input : 
+            - varibile di tipo char;
+    
+        output : 
+            - valore associato alla variabile var di tipo ComplexNum;
     */
     public ComplexNum getValue(Character var) throws UninitializedVariableException {
         

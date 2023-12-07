@@ -10,7 +10,7 @@ import progettoIS.gruppo01.Exceptions.FullStackException;
     su cui si basano tutte le operazioni della calcolatrice. 
     Ha una capacità limita, fissata all’atto di creazione dell’oggetto, 
     che ne determina un numero massimo di inserimenti. 
-    Fa utilizzo della collezione Stack implementata nel package java.util
+    Fa utilizzo della collezione Stack implementata nel package java.util.
 */
 
 public class ComplexStack {
@@ -21,7 +21,7 @@ public class ComplexStack {
     
     /*
         COMPLEXSTACK
-        Costruttore con passaggio di maxCapacity
+        Costruttore con parametri di inizializzazione.
     */
     public ComplexStack(int maxCapacity) { 
         
@@ -35,7 +35,7 @@ public class ComplexStack {
         INSERT
         Aggiunge un numero in cima allo stack. 
         Può lanciare un’eccezione controllata di tipo FullStackException se 
-        si tenta di aggiungere un numero e la struttura ha raggiunto la capacità massima
+        si tenta di aggiungere un numero e la struttura ha raggiunto la capacità massima.
     
         input :
             - numero complesso ComplexNum num;
@@ -56,7 +56,7 @@ public class ComplexStack {
         REMOVE
         Rimuove e restituisce l’elemento in cima allo stack. 
         Può lanciare un’eccezione controllata di tipo EmptyStackException se 
-        si tenta di rimuovere un numero e la struttura è vuota
+        si tenta di rimuovere un numero e la struttura è vuota.
     
         output : 
             - elemento in cima allo stack di tipo ComplexNum;
@@ -78,7 +78,7 @@ public class ComplexStack {
         TOP
         Restituisce, senza rimuoverlo, l’elemento in cima allo stack. 
         Può lanciare un’eccezione controllata di tipo EmptyStackException se si 
-        tenta di accedere all’elemento in cima e la struttura è vuota
+        tenta di accedere all’elemento in cima e la struttura è vuota.
     
         output : 
             - copia numero in cima di tipo ComplexNum;
@@ -100,7 +100,7 @@ public class ComplexStack {
     }
     
     /*
-        Restituisce il numero di elementi attualmente presenti nella struttura
+        Restituisce il numero di elementi attualmente presenti nella struttura.
         
         output:
             - numero presenti nello stack, tipo restituito int; 
