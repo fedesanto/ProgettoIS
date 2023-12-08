@@ -13,13 +13,13 @@ import java.io.IOException;
  */
 public class CalculatorApplication extends Application {
     
-    private final String XML_FILE = "xml_calcolatrice.fxml";
+    private final String FXML_FILE = "xml_calcolatrice_v2.fxml";
     private final int SCENE_WIDTH = 330;
     private final int SCENE_HEIGHT = 460;
     
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource(XML_FILE));
+        Parent root = FXMLLoader.load(getClass().getResource(FXML_FILE));
         Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT);
         //Scene scene = new Scene(loadFXML("xml_calcolatrice"), 330, 460);
 
