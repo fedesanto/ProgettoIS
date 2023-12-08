@@ -43,15 +43,15 @@ public class ComplexNum {
             if(Math.signum(imgPart) == -1.0)
                 return Double.toString(realPart) + " - " + Double.toString(Math.abs(imgPart)) + 'j';
             else
-                return Double.toString(realPart) + " + " + Double.toString(Math.abs(imgPart)) + 'j';
+                return Double.toString(realPart) + " + " + Double.toString(imgPart) + 'j';
         }
         /*
           Per trasformare il numero complesso in una stringa nella forma 
-          "a + bj" ho la necessità di prelevare il segno della parte immaginaria
-          e anteporlo tra gli spazi.
-          Per questo motivo bisogna riportare in stringa il valore assoluto della 
-          parte immaginaria, altrimenti nel caso in cui fosse negativa avrei 
-          due volte lo stesso segno ripetuto
+          "a + bj" ho la necessità di conoscere il segno della parte immaginaria
+          per inserirlo tra gli spazi.
+          Per questo motivo nel caso sia negativa bisogna riportare 
+          in stringa il valore assoluto della parte immaginaria, altrimenti 
+          avrei due volte lo stesso segno ripetuto
          */
     }
 
