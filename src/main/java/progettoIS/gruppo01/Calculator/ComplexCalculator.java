@@ -61,37 +61,37 @@ public class ComplexCalculator {
     }
 
     //Operazione matematica '+' della calcolatrice
-    public void add() throws InsufficientNumbersException, EmptyStackException, FullStackException {
+    public void add() throws InsufficientNumbersException{
         mathExecuter.stackAdd();
     }
 
     //Operazione matematica '-' della calcolatrice
-    public void sub() throws InsufficientNumbersException, EmptyStackException, FullStackException {
+    public void sub() throws InsufficientNumbersException{
         mathExecuter.stackSub();
     }
 
     //Operazione matematica '/' della calcolatrice
-    public void div() throws InsufficientNumbersException, EmptyStackException, FullStackException, MathException {
+    public void div() throws InsufficientNumbersException, MathException{
         mathExecuter.stackDiv();
     }
 
     //Operazione matematica '*' della calcolatrice
-    public void mul() throws InsufficientNumbersException, EmptyStackException, FullStackException {
+    public void mul() throws InsufficientNumbersException{
         mathExecuter.stackMul();
     }
 
     //Operazione matematica '+-' della calcolatrice
-    public void signInv() throws EmptyStackException, FullStackException {
+    public void signInv() throws EmptyStackException{
         mathExecuter.stackSignInv();
     }
 
     //Operazione matematica 'sqrt' della calcolatrice
-    public void sqrt() throws EmptyStackException, FullStackException {
+    public void sqrt() throws EmptyStackException{
         mathExecuter.stackSqrt();
     }
 
     //Comando su stack 'clear' della calcolatrice
-    public void clear() throws EmptyStackException {
+    public void clear(){
         stackCommander.stackClear();
     }
 
@@ -106,12 +106,12 @@ public class ComplexCalculator {
     }
 
     //Comando su stack 'swap' della calcolatrice
-    public void swap() throws EmptyStackException, InsufficientNumbersException, FullStackException {
+    public void swap() throws InsufficientNumbersException{
         stackCommander.stackSwap();
     }
 
     //Comando su stack 'over' della calcolatrice
-    public void over() throws InsufficientNumbersException, FullStackException, EmptyStackException {
+    public void over() throws InsufficientNumbersException, FullStackException{
         stackCommander.stackOver();
     }
 
@@ -121,8 +121,7 @@ public class ComplexCalculator {
         Output:
             - vettore di stringhe degli ultimi LAST_NUMBERS dalla cima dello stack
      */
-    public String[] getLastNumbers() throws EmptyStackException, FullStackException {
+    public String[] getLastNumbers(){
         return stackCommander.getContent(LAST_NUMBERS);
     }
-
 }
