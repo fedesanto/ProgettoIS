@@ -6,12 +6,7 @@ import progettoIS.gruppo01.Calculator.Management.InsertionManagement;
 import progettoIS.gruppo01.Calculator.Management.VarManagement;
 import progettoIS.gruppo01.Calculator.Structures.ComplexStack;
 import progettoIS.gruppo01.Calculator.Structures.VarContainer;
-import progettoIS.gruppo01.Exceptions.EmptyStackException;
-import progettoIS.gruppo01.Exceptions.FullStackException;
-import progettoIS.gruppo01.Exceptions.InsufficientNumbersException;
-import progettoIS.gruppo01.Exceptions.MathException;
-import progettoIS.gruppo01.Exceptions.SyntaxException;
-import progettoIS.gruppo01.Exceptions.UninitializedVariableException;
+import progettoIS.gruppo01.Exceptions.*;
 
 public class ComplexCalculator {
 

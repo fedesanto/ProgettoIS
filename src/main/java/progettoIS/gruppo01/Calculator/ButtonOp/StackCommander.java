@@ -20,7 +20,9 @@ public class StackCommander {
     */
     public void stackClear(){
         try{
-            for(int i=0;i<stackNumeri.getSize();i++){
+            int stackSize = stackNumeri.getSize();
+            
+            for(int i=0; i<stackSize; i++){
                 stackNumeri.remove();
             }
         }catch(EmptyStackException ex){}
@@ -99,7 +101,7 @@ public class StackCommander {
         try{
             for(int i=0;i<num;i++){
                 t[i]=stackNumeri.remove(); //Rimozione temporanea dei numeri dallo stack
-                v[i]=t[i].toString(); //Inserimento, nel vettore di stringhe, dei numeri espressi nel formato restituito dal loro metodo toString()
+                v[v.length-i-1]=t[i].toString(); //Inserimento, nel vettore di stringhe, dei numeri espressi nel formato restituito dal loro metodo toString()
             }
         
             for(int i=num-1;i>=0;i--){

@@ -27,7 +27,7 @@
           <RowConstraints maxHeight="381.0" minHeight="10.0" prefHeight="275.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <TextField fx:id="inputField" alignment="CENTER" maxHeight="25.0" maxWidth="179.0" minHeight="25.0" minWidth="68.0" onAction="#inputEvent" prefHeight="25.0" prefWidth="169.0" text="5 + 2j" GridPane.columnIndex="1">
+            <TextField fx:id="inputArea" alignment="CENTER" maxHeight="25.0" maxWidth="179.0" minHeight="25.0" minWidth="68.0" onAction="#inputEvent" prefHeight="25.0" prefWidth="169.0" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets left="21.0" />
                </GridPane.margin>
@@ -146,17 +146,17 @@
                   <VBox fx:id="stackArea" alignment="TOP_CENTER" prefHeight="248.0" prefWidth="62.0" spacing="4.0">
                      <children>
                         <Label />
-                        <Label />
-                        <Label />
-                        <Label />
-                        <Label />
-                        <Label />
-                        <Label text="-21 + 56.2j" />
-                        <Label text="0" />
-                        <Label text="25.1 - 87.9j" />
-                        <Label text="3.6j" />
-                        <Label text="48" />
-                        <Label text="5 + 3j" />
+                        <Label textOverrun="WORD_ELLIPSIS" />
+                        <Label textOverrun="WORD_ELLIPSIS" />
+                        <Label textOverrun="WORD_ELLIPSIS" />
+                        <Label textOverrun="WORD_ELLIPSIS" />
+                        <Label textOverrun="WORD_ELLIPSIS" />
+                        <Label textOverrun="WORD_ELLIPSIS" />
+                        <Label textOverrun="WORD_ELLIPSIS" />
+                        <Label textOverrun="WORD_ELLIPSIS" />
+                        <Label textOverrun="WORD_ELLIPSIS" />
+                        <Label textOverrun="WORD_ELLIPSIS" />
+                        <Label textOverrun="WORD_ELLIPSIS" />
                      </children>
                      <opaqueInsets>
                         <Insets />
@@ -172,7 +172,7 @@
             </VBox>
          </children>
       </GridPane>
-      <TextArea fx:id="errorArea" editable="false" prefHeight="69.0" prefWidth="290.0" text="SYNTAX ERROR&#10;Rispettare uno dei seguenti formati per numeri complessi: &quot;a + bj&quot;, &quot;a&quot;, &quot;bj&quot;&#10;Oppure il seguente formato per operazioni su variabili &quot;?x&quot;">
+      <TextArea fx:id="errorArea" editable="false" prefHeight="69.0" prefWidth="290.0">
          <VBox.margin>
             <Insets top="6.0" />
          </VBox.margin>
