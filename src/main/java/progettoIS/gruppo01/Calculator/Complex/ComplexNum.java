@@ -40,7 +40,10 @@ public class ComplexNum {
             return Double.toString(imgPart) + 'j';
         } 
         else {
-            return Double.toString(realPart) + ' ' + Math.signum(imgPart) + ' ' + Double.toString(Math.abs(imgPart)) + 'j';
+            if(Math.signum(imgPart) == -1.0)
+                return Double.toString(realPart) + " - " + Double.toString(Math.abs(imgPart)) + 'j';
+            else
+                return Double.toString(realPart) + " + " + Double.toString(Math.abs(imgPart)) + 'j';
         }
         /*
           Per trasformare il numero complesso in una stringa nella forma 
