@@ -18,10 +18,12 @@ public class StackCommander {
     /*Metodo che svuota completamente lo stack.
     Può lanciare un’eccezione controllata di tipo EmptyStackException se lo stack è vuoto.
     */
-    public void stackClear() throws EmptyStackException{
-        for(int i=0;i<stackNumeri.getSize();i++){
-            stackNumeri.remove();
-        }
+    public void stackClear(){
+        try{
+            for(int i=0;i<stackNumeri.getSize();i++){
+                stackNumeri.remove();
+            }
+        }catch(EmptyStackException ex){}
     }
     
     /*Metodo che rimuove il numero in cima allo stack.
@@ -37,7 +39,7 @@ public class StackCommander {
     Può lanciare un’eccezione controllata di tipo FullStackException se lo stack è pieno,
     e un’eccezione controllata di tipo EmptyStackException se lo stack è vuoto
     */
-    public void stackDup() throws FullStackException,EmptyStackException{
+    public void stackDup() throws FullStackException, EmptyStackException{
         if(stackNumeri.getSize()==0){
             throw new EmptyStackException("Empty Stack Error");
         }
@@ -47,28 +49,35 @@ public class StackCommander {
     /*Metodo che inverte la posizione dei due numeri in cima allo stack.
     Può lanciare un’eccezione controllata di tipo InsufficientNumbersException se lo stack ha meno di due numeri.
     */
-    public void stackSwap() throws InsufficientNumbersException, EmptyStackException, FullStackException{
+    public void stackSwap() throws InsufficientNumbersException{
         if(stackNumeri.getSize()<=1){
             throw new InsufficientNumbersException("Insufficient Numbers Error");
         }
-        ComplexNum primo=stackNumeri.remove(); //Prelievo del primo numero 
-        ComplexNum secondo=stackNumeri.remove(); //Prelievo del secondo numero 
-        stackNumeri.insert(primo); //Reinserimento del primo numero
-        stackNumeri.insert(secondo); //Reinserimento del secondo numero
+        
+        try{
+            ComplexNum primo=stackNumeri.remove(); //Prelievo del primo numero 
+            ComplexNum secondo=stackNumeri.remove(); //Prelievo del secondo numero 
+            stackNumeri.insert(primo); //Reinserimento del primo numero
+            stackNumeri.insert(secondo); //Reinserimento del secondo numero
+        }catch(EmptyStackException ex){}
+         catch(FullStackException ex){}
     }
      
     /*Metodo che duplica in cima allo stack il numero nella seconda posizione
     Può lanciare un’eccezione controllata di tipo InsufficientNumbersExceptionse lo stack ha meno di due numeri,
     e un’eccezione controllata di tipo FullStackExceptionse lo stack è pieno
     */
-    public void stackOver() throws InsufficientNumbersException,FullStackException, EmptyStackException{
+    public void stackOver() throws InsufficientNumbersException, FullStackException{
         if(stackNumeri.getSize()<=1){
             throw new InsufficientNumbersException("Insufficient Numbers Error");
         }
-        ComplexNum primo=stackNumeri.remove(); //Prelievo del primo numero 
-        ComplexNum secondo=stackNumeri.top(); //Copia del secondo numero
-        stackNumeri.insert(primo); //Reinserimento del primo numero
-        stackNumeri.insert(secondo); //Inserimento della copia del secondo numero
+        
+        try{
+            ComplexNum primo=stackNumeri.remove(); //Prelievo del primo numero 
+            ComplexNum secondo=stackNumeri.top(); //Copia del secondo numero
+            stackNumeri.insert(primo); //Reinserimento del primo numero
+            stackNumeri.insert(secondo); //Inserimento della copia del secondo numero
+        }catch(EmptyStackException ex){}
     }
     
     /*Metodo che restituisce un vettore di stringhe contenente
@@ -76,7 +85,7 @@ public class StackCommander {
     Se lo stack ha meno di ‘num’ numeri, il vettore conterrà tutti i numeri presenti nello stack.
     Se lo stack è vuoto, restituisce Null.
     */
-    public String[] getContent(int num) throws EmptyStackException, FullStackException{
+    public String[] getContent(int num){
         if(stackNumeri.getSize()==0){
            return null;
         }
@@ -86,15 +95,18 @@ public class StackCommander {
         }
         ComplexNum t[] = new ComplexNum[num]; //Vettore di ComplexNum per contenere temporaneamente i numeri rimossi dallo stack
         String v[] = new String[num]; //Vettore di stringhe in cui inserire i numeri,espressi nel formato restituito dal loro metodo toString() 
-         
-        for(int i=0;i<num;i++){
-            t[i]=stackNumeri.remove(); //Rimozione temporanea dei numeri dallo stack
-            v[i]=t[i].toString(); //Inserimento, nel vettore di stringhe, dei numeri espressi nel formato restituito dal loro metodo toString()
-        }
         
-        for(int i=num-1;i>=0;i--){
-            stackNumeri.insert(t[i]); //Reinserimento dei numeri nello stack
-        }
+        try{
+            for(int i=0;i<num;i++){
+                t[i]=stackNumeri.remove(); //Rimozione temporanea dei numeri dallo stack
+                v[i]=t[i].toString(); //Inserimento, nel vettore di stringhe, dei numeri espressi nel formato restituito dal loro metodo toString()
+            }
+        
+            for(int i=num-1;i>=0;i--){
+                stackNumeri.insert(t[i]); //Reinserimento dei numeri nello stack
+            }
+        }catch(EmptyStackException ex){}
+         catch(FullStackException ex){}
          
         return v;
     } 

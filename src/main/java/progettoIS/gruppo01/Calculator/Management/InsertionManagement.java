@@ -24,9 +24,10 @@ public class InsertionManagement implements InputManagement{
     */
     @Override
     public void execute(String input) throws FullStackException{
-   
+    
         ComplexNum num = ComplexNum.parseComplex(input); //Creo un nuovo numero complessp
-        stackNumeri.insert(num);       //Lo inserisco all'interno dello stack*/
+        if(num != null)
+            stackNumeri.insert(num);       //Lo inserisco all'interno dello stack*/
     }
     
     
