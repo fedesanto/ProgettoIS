@@ -1,9 +1,7 @@
 package progettoIS.gruppo01.Calculator.Complex;
 
-
-
 public class MathOperations {
-    
+
     /*
     Metodo che gestisce la somma tra numeri complessi.
     Il numero complesso risultato presenta come parte reale la somma tra
@@ -83,10 +81,9 @@ public class MathOperations {
         divRealPart = (a * c + b * d) / denominatore;
 
         divImgPart = (b * c - a * d) / denominatore;
-        
 
-        return new ComplexNum(Math.round(divRealPart*1000.0)/1000.0, Math.round(divImgPart*1000.0)/1000.0);
-        // Math.round(num * 1000.0) / 1000.0 permette di arrotondare un dobule alla terza cifra decimale
+        return new ComplexNum(Math.round(divRealPart * 1000.0) / 1000.0, Math.round(divImgPart * 1000.0) / 1000.0);
+        // Math.round(num * 1000.0) / 1000.0 permette di arrotondare un double alla terza cifra decimale
     }
 
     /*
@@ -115,7 +112,8 @@ public class MathOperations {
 
         mulImgPart = a * d + b * c;
 
-        return new ComplexNum(mulRealPart, mulImgPart);
+        return new ComplexNum(Math.round(mulRealPart * 1000.0) / 1000.0, Math.round(mulImgPart * 1000.0) / 1000.0);
+        // Math.round(num * 1000.0) / 1000.0 permette di arrotondare un double alla terza cifra decimale
     }
 
     /*
@@ -143,8 +141,8 @@ public class MathOperations {
         sqrtRealPart = Math.sqrt((module + a) / 2.0);
         sqrtImgPart = Math.sqrt((module - a) / 2.0) * Math.signum(b);
 
-        return new ComplexNum(Math.round(sqrtRealPart*1000.0)/1000.0, Math.round(sqrtImgPart*1000.0)/1000.0);
-        // Math.round(num * 1000.0) / 1000.0 permette di arrotondare un dobule alla terza cifra decimale
+        return new ComplexNum(Math.round(sqrtRealPart * 1000.0) / 1000.0, Math.round(sqrtImgPart * 1000.0) / 1000.0);
+        // Math.round(num * 1000.0) / 1000.0 permette di arrotondare un double alla terza cifra decimale
     }
 
     /*

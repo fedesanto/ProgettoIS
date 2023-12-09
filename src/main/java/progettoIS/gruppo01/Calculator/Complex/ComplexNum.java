@@ -1,6 +1,5 @@
 package progettoIS.gruppo01.Calculator.Complex;
 
-
 public class ComplexNum {
 
     private double realPart;        //Parte reale del numero complesso
@@ -33,17 +32,32 @@ public class ComplexNum {
      */
     @Override
     public String toString() {
+
+        String strReal = Double.toString(realPart);
+        String strImg = Double.toString(imgPart);
+
+        /*
+            Tramite questo controllo nel caso in cui avessi un double senza 
+            la parte decimale, ritorno come stringa solo la parte intera
+         */
+        if (strReal.matches("//d+.0")) {
+            strReal = strReal.substring(0, strReal.length() - 2);
+        }
+
+        if (strImg.matches("//d+.0")) {
+            strImg = strImg.substring(0, strImg.length() - 2);
+        }
+
         if (imgPart == 0) {
-            return Double.toString(realPart);
-        } 
-        else if (realPart == 0) {
-            return Double.toString(imgPart) + 'j';
-        } 
-        else {
-            if(Math.signum(imgPart) == -1.0)
-                return Double.toString(realPart) + " - " + Double.toString(Math.abs(imgPart)) + 'j';
-            else
-                return Double.toString(realPart) + " + " + Double.toString(imgPart) + 'j';
+            return strReal;
+        } else if (realPart == 0) {
+            return strImg;
+        } else {
+            if (Math.signum(imgPart) == -1.0) {
+                return strReal + " - " + strImg.substring(1) + 'j';
+            } else {
+                return strReal + " + " + strImg + 'j';
+            }
         }
         /*
           Per trasformare il numero complesso in una stringa nella forma 
@@ -54,6 +68,7 @@ public class ComplexNum {
           avrei due volte lo stesso segno ripetuto
          */
     }
+
 
     /*
     Costruzione di un numero complesso da una stringa nel formato “a + bj”, “a” o “bj”,
@@ -100,8 +115,7 @@ public class ComplexNum {
             } else {
                 img = Double.parseDouble(stringImg);
             }
-        } 
-        /*
+        } /*
         L'espressione regolare di seguito riportata permette di acccettare 
         stringhe nel formato "a", pertanto impone che il numero contenga
         in successione:
@@ -109,11 +123,9 @@ public class ComplexNum {
             2) una oppure più cifre
             3) una oppure nessuna parte decimale, in cui ci sarà un punto
                seguito da una oppure più cifre
-         */ 
-        else if (num.matches("-?\\d+(.\\d+)?")) {
+         */ else if (num.matches("-?\\d+(.\\d+)?")) {
             real = Double.parseDouble(num);
-        } 
-         /*
+        } /*
         L'espressione regolare di seguito riportata permette di acccettare 
         stringhe nel formato "bj", pertanto impone che il numero contenga
         in successione:
@@ -122,16 +134,15 @@ public class ComplexNum {
             3) una oppure nessuna parte decimale, in cui ci sarà un punto
                seguito da una oppure più cifre
             4) il carattere j 
-         */ 
-        else if (num.matches("-?\\d+(.\\d+)?j")) {
+         */ else if (num.matches("-?\\d+(.\\d+)?j")) {
 
             String stringImg = num.substring(0, num.length() - 1);
 
             img = Double.parseDouble(stringImg);
 
-        } else 
+        } else {
             return null;
-        
+        }
 
         return new ComplexNum(real, img);
     }
