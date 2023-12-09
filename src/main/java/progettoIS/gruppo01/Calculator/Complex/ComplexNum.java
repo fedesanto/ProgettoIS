@@ -146,5 +146,43 @@ public class ComplexNum {
 
         return new ComplexNum(real, img);
     }
+    
+    /*
+    Metodo che verifica l'uguaglianza del numero complesso con un altro oggetto (utile per il test)
+    In ordine:
+        1) Se i due oggetti hanno lo stesso riferimento, restituisce true
+        2) Se il secondo oggetto è 'nullo', restituisce false
+        3) Se le classi dei due oggetti sono diverse, restituisce false
+        4) Se parte reale ed immaginaria sono ugali, restituisce true, altrimenti false
+    
+    Input:
+        - obj, oggetto con cui effettuare il confronto
+    
+    Output:
+        - true se i due oggetti sono uguali, secondo i criteri suddetti, false altrimenti
+    */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        
+        if (obj == null)
+            return false;
+        
+        if (getClass() != obj.getClass())
+            return false;
+        
+        ComplexNum other = (ComplexNum) obj;
+        if (this.realPart != other.realPart) {
+            return false;
+        }
+        if (this.imgPart != other.imgPart) {
+            return false;
+        }
+        
+        return true;
+    }
+    
+    
 
 }
