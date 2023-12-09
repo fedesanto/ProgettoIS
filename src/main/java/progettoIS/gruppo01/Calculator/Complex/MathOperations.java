@@ -1,6 +1,7 @@
 package progettoIS.gruppo01.Calculator.Complex;
 
 
+
 public class MathOperations {
     
     /*
@@ -82,8 +83,10 @@ public class MathOperations {
         divRealPart = (a * c + b * d) / denominatore;
 
         divImgPart = (b * c - a * d) / denominatore;
+        
 
-        return new ComplexNum(divRealPart, divImgPart);
+        return new ComplexNum(Math.round(divRealPart*1000.0)/1000.0, Math.round(divImgPart*1000.0)/1000.0);
+        // Math.round(num * 1000.0) / 1000.0 permette di arrotondare un dobule alla terza cifra decimale
     }
 
     /*
@@ -129,7 +132,7 @@ public class MathOperations {
      */
     public static ComplexNum sqrt(ComplexNum num) {
 
-        double sqrtrealPart;
+        double sqrtRealPart;
         double sqrtImgPart;
 
         double a = num.getRealPart();
@@ -137,10 +140,11 @@ public class MathOperations {
 
         double module = Math.sqrt(a * a + b * b);
 
-        sqrtrealPart = Math.sqrt((module + a) / 2.0);
+        sqrtRealPart = Math.sqrt((module + a) / 2.0);
         sqrtImgPart = Math.sqrt((module - a) / 2.0) * Math.signum(b);
 
-        return new ComplexNum(sqrtrealPart, sqrtImgPart);
+        return new ComplexNum(Math.round(sqrtRealPart*1000.0)/1000.0, Math.round(sqrtImgPart*1000.0)/1000.0);
+        // Math.round(num * 1000.0) / 1000.0 permette di arrotondare un dobule alla terza cifra decimale
     }
 
     /*
