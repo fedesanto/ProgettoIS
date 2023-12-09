@@ -10,13 +10,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="330.0" spacing="15.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="progettoIS.gruppo01.UI.ViewController">
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="460.0" prefWidth="380.0" spacing="15.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="progettoIS.gruppo01.UI.ViewController">
    <children>
-      <HBox alignment="CENTER" prefHeight="316.0" prefWidth="290.0" spacing="8.0">
+      <HBox alignment="CENTER" prefHeight="321.0" prefWidth="326.0" spacing="24.0">
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="107.0">
                <children>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="18.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="35.0">
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="18.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="35.0">
                      <children>
                         <Label text="STACK">
                            <font>
@@ -136,7 +137,7 @@
             </AnchorPane>
          </children>
       </HBox>
-      <TextArea fx:id="errorArea" editable="false" maxWidth="265.0" minWidth="269.0" prefHeight="79.0" prefWidth="274.0" />
+      <TextArea fx:id="errorArea" cacheShape="false" editable="false" focusTraversable="false" maxWidth="313.0" minWidth="253.0" prefHeight="79.0" prefWidth="313.0" />
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

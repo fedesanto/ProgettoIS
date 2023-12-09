@@ -14,7 +14,7 @@ import java.io.IOException;
 public class CalculatorApplication extends Application {
     
     private final String FXML_FILE = "xml_calcolatrice_v2.fxml";
-    private final int SCENE_WIDTH = 330;
+    private final int SCENE_WIDTH = 380;
     private final int SCENE_HEIGHT = 460;
     
     @Override

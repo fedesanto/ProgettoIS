@@ -307,26 +307,32 @@ public class ViewController implements Initializable{
     
     private void printSyntaxError(){
         errorArea.setText("SYNTAX ERROR\n"
-                        + "errore di sintassi");
+                        + "Inserire un numero nel formato \"a + bj\", \"a\" o  \"bj\",\n"
+                        + "oppure una variabile dal formato \"?x\", dove ? è uno degli operatori su variabile");
     }
     
     private void printMathError(){
-        
+        errorArea.setText("MATH ERROR\n"
+                        + "impossibile eseguire una divisione per 0");
     }
     
     private void printFullStackError(){
-        
+        errorArea.setText("FULL STACK ERROR\n"
+                        + "svuotare lo stack di almeno una posizione");
     } 
     
     private void printEmptyStackError(){
-        
+        errorArea.setText("EMPTY STACK ERROR\n"
+                        + "inserire almeno un numero all'interno dello stack");
     }
     
     private void printUninitializedVariableError(){
-        
+        errorArea.setText("UNINITIALIZED VARIABILE ERROR\n"
+                        + "inizializzare la variabile indicata con un valore");
     }
     
     private void printInsufficientNumbersError(){
-        
+        errorArea.setText("INSUFFICIENT NUMBERS ERROR\n"
+                        + "l'operazione richiesta necessita di almeno due numeri nello stack");
     }
 }

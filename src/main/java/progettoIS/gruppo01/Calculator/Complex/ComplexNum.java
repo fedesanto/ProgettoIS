@@ -40,18 +40,18 @@ public class ComplexNum {
             Tramite questo controllo nel caso in cui avessi un double senza 
             la parte decimale, ritorno come stringa solo la parte intera
          */
-        if (strReal.matches("//d+.0")) {
+        if (strReal.matches("\\d+.0")) {
             strReal = strReal.substring(0, strReal.length() - 2);
         }
 
-        if (strImg.matches("//d+.0")) {
+        if (strImg.matches("\\d+.0")) {
             strImg = strImg.substring(0, strImg.length() - 2);
         }
 
         if (imgPart == 0) {
             return strReal;
         } else if (realPart == 0) {
-            return strImg;
+            return strImg + "j";
         } else {
             if (Math.signum(imgPart) == -1.0) {
                 return strReal + " - " + strImg.substring(1) + 'j';
