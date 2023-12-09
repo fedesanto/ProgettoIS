@@ -63,7 +63,7 @@ public class ComplexNum {
           Per trasformare il numero complesso in una stringa nella forma 
           "a + bj" ho la necessità di conoscere il segno della parte immaginaria
           per inserirlo tra gli spazi.
-          Per questo motivo nel caso sia negativa bisogna riportare 
+          Per questo motivo nel caso in cui sia negativa bisogna riportare 
           in stringa il valore assoluto della parte immaginaria, altrimenti 
           avrei due volte lo stesso segno ripetuto
          */
