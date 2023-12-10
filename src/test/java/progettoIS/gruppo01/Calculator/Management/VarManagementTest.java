@@ -1,9 +1,6 @@
 package progettoIS.gruppo01.Calculator.Management;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import progettoIS.gruppo01.Calculator.Complex.ComplexNum;
@@ -126,7 +123,7 @@ public class VarManagementTest {
     public void testExecuteAdd2() throws FullStackException, EmptyStackException, UninitializedVariableException {
         System.out.println("VarManagement execute test addVar empty stack");
 
-        String input = "+t";
+        String input = "+s";
 
         assertThrows(EmptyStackException.class, () -> {
             instance.execute(input);
@@ -136,14 +133,58 @@ public class VarManagementTest {
     //test di execute nel caso di "+x", con variabile non inizializzata e stack non vuoto
     @Test
     public void testExecuteAdd3() throws FullStackException, EmptyStackException, UninitializedVariableException {
-        System.out.println("VarManagement execute test addVar empty stack");
+        System.out.println("VarManagement execute test addVar uninitialized variable");
 
         stack.insert(new ComplexNum(-78.5, -98.4));
         
-        String input = "+t";
+        String input = "+w";
 
         assertThrows(UninitializedVariableException.class, () -> {
             instance.execute(input);
         });
     }
+    
+    //test di execute nel caso di "-x", con variabile inizializzata e stack non vuoto
+    @Test
+    public void testExecuteSub1() throws FullStackException, EmptyStackException, UninitializedVariableException {
+        System.out.println("VarManagement execute test subVar typical");
+
+        ComplexNum top = new ComplexNum(12.47, -11.65);
+        stack.insert(top);
+
+        ComplexNum varValue = new ComplexNum(-0.01, 22.32);
+        var.setValue('q', varValue);
+
+        String input = "-q";
+        instance.execute(input);
+
+        assertEquals(MathOperations.sottrazione(varValue,top), var.getValue('q'));
+    }
+
+    //test di execute nel caso di "-x", con stack vuoto
+    @Test
+    public void testExecuteSub2() throws FullStackException, EmptyStackException, UninitializedVariableException {
+        System.out.println("VarManagement execute test subVar empty stack");
+
+        String input = "-z";
+
+        assertThrows(EmptyStackException.class, () -> {
+            instance.execute(input);
+        });
+    }
+    
+    //test di execute nel caso di "-x", con variabile non inizializzata e stack non vuoto
+    @Test
+    public void testExecuteSub3() throws FullStackException, EmptyStackException, UninitializedVariableException {
+        System.out.println("VarManagement execute test subVar uninitialized variable");
+
+        stack.insert(new ComplexNum(67.09, 32.0));
+        
+        String input = "-l";
+
+        assertThrows(UninitializedVariableException.class, () -> {
+            instance.execute(input);
+        });
+    }
+    
 }
