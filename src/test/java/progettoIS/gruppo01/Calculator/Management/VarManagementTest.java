@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import progettoIS.gruppo01.Calculator.Complex.ComplexNum;
+import progettoIS.gruppo01.Calculator.Complex.MathOperations;
 import progettoIS.gruppo01.Calculator.Structures.ComplexStack;
 import progettoIS.gruppo01.Calculator.Structures.VarContainer;
 import progettoIS.gruppo01.Exceptions.EmptyStackException;
@@ -30,7 +31,7 @@ public class VarManagementTest {
     /**
      * Test of execute method, of class VarManagement.
      */
-    //test di execute nel caso di ">x" e lo stack non è vuoto
+    //test di execute nel caso di ">x". con stack non vuoto
     @Test
     public void testExecuteSave1() throws FullStackException, EmptyStackException, UninitializedVariableException {
         System.out.println("VarManagement execute test saveVar typical");
@@ -44,7 +45,7 @@ public class VarManagementTest {
         assertEquals(top, var.getValue('a'));
     }
 
-    //test di execute nel caso di ">x" e lo stack è vuoto
+    //test di execute nel caso di ">x", con stack vuoto
     @Test
     public void testExecuteSave2() throws FullStackException, EmptyStackException, UninitializedVariableException {
         System.out.println("VarManagement execute test saveVar empty stack");
@@ -62,7 +63,7 @@ public class VarManagementTest {
         System.out.println("VarManagement execute test insVar typical");
 
         ComplexNum top = new ComplexNum(-2, -4.67);
-        
+
         var.setValue('d', top);
 
         String input = "<d";
@@ -70,27 +71,27 @@ public class VarManagementTest {
 
         assertEquals(top, stack.top());
     }
-    
+
     //test di execute nel caso di "<x", con variabile inizializzata e stack  pieno
     @Test
     public void testExecuteIns2() throws FullStackException, EmptyStackException, UninitializedVariableException {
         System.out.println("VarManagement execute test insVar full stack");
-        
+
         ComplexStack semiStack = new ComplexStack(2);
-        semiStack.insert(new ComplexNum(-2.5,3.2));
-        semiStack.insert(new ComplexNum(-32.4,-12.8));
+        semiStack.insert(new ComplexNum(-2.5, 3.2));
+        semiStack.insert(new ComplexNum(-32.4, -12.8));
 
         instance = new VarManagement(semiStack, var);
-        
-        var.setValue('f', new ComplexNum(28.12,34.67));
+
+        var.setValue('f', new ComplexNum(28.12, 34.67));
 
         String input = "<f";
-        
+
         assertThrows(FullStackException.class, () -> {
             instance.execute(input);
         });
     }
-    
+
     //test di execute nel caso di "<x", con variabile non inizializzata
     @Test
     public void testExecuteIns3() throws FullStackException, EmptyStackException, UninitializedVariableException {
@@ -102,7 +103,7 @@ public class VarManagementTest {
             instance.execute(input);
         });
     }
-    
+
     //test di execute nel caso di "+x", con variabile inizializzata e stack non vuoto
     @Test
     public void testExecuteAdd1() throws FullStackException, EmptyStackException, UninitializedVariableException {
@@ -111,12 +112,38 @@ public class VarManagementTest {
         ComplexNum top = new ComplexNum(34.7, -45.6);
         stack.insert(top);
 
-        ComplexNum varValue = new ComplexNum(-12.67,78.9);
+        ComplexNum varValue = new ComplexNum(-12.67, 78.9);
         var.setValue('g', varValue);
+
         String input = "+g";
         instance.execute(input);
 
-        assertEquals(top, var.getValue('g'));
+        assertEquals(MathOperations.somma(top, varValue), var.getValue('g'));
+    }
+
+    //test di execute nel caso di "+x", con stack vuoto
+    @Test
+    public void testExecuteAdd2() throws FullStackException, EmptyStackException, UninitializedVariableException {
+        System.out.println("VarManagement execute test addVar empty stack");
+
+        String input = "+t";
+
+        assertThrows(EmptyStackException.class, () -> {
+            instance.execute(input);
+        });
     }
     
+    //test di execute nel caso di "+x", con variabile non inizializzata e stack non vuoto
+    @Test
+    public void testExecuteAdd3() throws FullStackException, EmptyStackException, UninitializedVariableException {
+        System.out.println("VarManagement execute test addVar empty stack");
+
+        stack.insert(new ComplexNum(-78.5, -98.4));
+        
+        String input = "+t";
+
+        assertThrows(UninitializedVariableException.class, () -> {
+            instance.execute(input);
+        });
+    }
 }

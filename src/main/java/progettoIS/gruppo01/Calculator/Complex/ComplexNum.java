@@ -88,7 +88,7 @@ public class ComplexNum {
         L'espressione regolare di seguito riportata permette di accettare 
         stringhe nel formato "a + bj", pertanto impone che il numero contenga
         in successione:
-            1) uno oppure nessun segno meno
+            1) uno oppure nessun segno meno oppure più
             2) una oppure più cifre
             3) una oppure nessuna parte decimale, in cui ci sarà un punto
                seguito da una oppure più cifre
@@ -100,7 +100,7 @@ public class ComplexNum {
                seguito da una oppure più cifre
             9) il carattere j 
          */
-        if (num.matches("-?\\d+(.\\d+)? [-+] \\d+(.\\d+)?j")) {
+        if (num.matches("[-+]?\\d+(.\\d+)? [-+] \\d+(.\\d+)?j")) {
             String numbers[] = num.split(" ");
 
             real = Double.parseDouble(numbers[0]);
@@ -119,22 +119,22 @@ public class ComplexNum {
         L'espressione regolare di seguito riportata permette di acccettare 
         stringhe nel formato "a", pertanto impone che il numero contenga
         in successione:
-            1) uno oppure nessun segno meno
+            1) uno oppure nessun segno meno oppure più
             2) una oppure più cifre
             3) una oppure nessuna parte decimale, in cui ci sarà un punto
                seguito da una oppure più cifre
-         */ else if (num.matches("-?\\d+(.\\d+)?")) {
+         */ else if (num.matches("[-+]?\\d+(.\\d+)?")) {
             real = Double.parseDouble(num);
         } /*
         L'espressione regolare di seguito riportata permette di acccettare 
         stringhe nel formato "bj", pertanto impone che il numero contenga
         in successione:
-            1) uno oppure nessun segno meno
+            1) uno oppure nessun segno meno oppure più
             2) una oppure più cifre
             3) una oppure nessuna parte decimale, in cui ci sarà un punto
                seguito da una oppure più cifre
             4) il carattere j 
-         */ else if (num.matches("-?\\d+(.\\d+)?j")) {
+         */ else if (num.matches("[-+]?\\d+(.\\d+)?j")) {
 
             String stringImg = num.substring(0, num.length() - 1);
 
