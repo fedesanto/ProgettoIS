@@ -36,10 +36,9 @@ public class InsertionManagementTest {
     public void testExecute2() throws FullStackException {
         System.out.println("InsertionManagement execute test full stack");
         
-        stack = new ComplexStack(0);
+        stack = new ComplexStack(2);
         instance = new InsertionManagement(stack);
         
-        stack = new ComplexStack(2);
         stack.insert(new ComplexNum(5.25 ,-36.5));
         stack.insert(new ComplexNum(-25 ,-39.4));
 
