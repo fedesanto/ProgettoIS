@@ -139,7 +139,7 @@ public class MathOperations {
         double module = Math.sqrt(a * a + b * b);
 
         sqrtRealPart = Math.sqrt((module + a) / 2.0);
-        sqrtImgPart = Math.sqrt((module - a) / 2.0) * Math.signum(b);
+        sqrtImgPart = Math.sqrt((module - a) / 2.0) * (b == 0.0 ? 1.0 : Math.signum(b));
 
         return new ComplexNum(Math.round(sqrtRealPart * 1000.0) / 1000.0, Math.round(sqrtImgPart * 1000.0) / 1000.0);
         // Math.round(num * 1000.0) / 1000.0 permette di arrotondare un double alla terza cifra decimale
