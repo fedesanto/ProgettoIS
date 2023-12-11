@@ -41,7 +41,7 @@ public class ComplexCalculator {
         accetta un input se nel formato "a + bj","a" o "bj",
         dove a e b sono numeri reali
          */
-        if (input.matches("[-+]?\\d+(.\\d+)? [-+] \\d+(.\\d+)?j") || input.matches("[-+]?\\d+(.\\d+)?") || input.matches("[-+]?\\d+(.\\d+)?j")) {
+        if (input.matches("[-+]?\\d+(\\.\\d+)? [-+] \\d+(.\\d+)?j") || input.matches("[-+]?\\d+(\\.\\d+)?") || input.matches("[-+]?\\d+(\\.\\d+)?j")) {
             insertionManager.execute(input);
             /*
         accetta una input se nel formato "+x","-x","<x",">x",

@@ -40,11 +40,11 @@ public class ComplexNum {
             Tramite questo controllo nel caso in cui avessi un double senza 
             la parte decimale, ritorno come stringa solo la parte intera
          */
-        if (strReal.matches("-?\\d+.0")) {
+        if (strReal.matches("-?\\d+\\.0")) {
             strReal = strReal.substring(0, strReal.length() - 2);
         }
 
-        if (strImg.matches("-?\\d+.0")) {
+        if (strImg.matches("-?\\d+\\.0")) {
             strImg = strImg.substring(0, strImg.length() - 2);
         }
 
@@ -100,7 +100,7 @@ public class ComplexNum {
                seguito da una oppure più cifre
             9) il carattere j 
          */
-        if (num.matches("[-+]?\\d+(.\\d+)? [-+] \\d+(.\\d+)?j")) {
+        if (num.matches("[-+]?\\d+(\\.\\d+)? [-+] \\d+(\\.\\d+)?j")) {
             String numbers[] = num.split(" ");
 
             real = Double.parseDouble(numbers[0]);
@@ -123,7 +123,7 @@ public class ComplexNum {
             2) una oppure più cifre
             3) una oppure nessuna parte decimale, in cui ci sarà un punto
                seguito da una oppure più cifre
-         */ else if (num.matches("[-+]?\\d+(.\\d+)?")) {
+         */ else if (num.matches("[-+]?\\d+(\\.\\d+)?")) {
             real = Double.parseDouble(num);
         } /*
         L'espressione regolare di seguito riportata permette di acccettare 
@@ -134,7 +134,7 @@ public class ComplexNum {
             3) una oppure nessuna parte decimale, in cui ci sarà un punto
                seguito da una oppure più cifre
             4) il carattere j 
-         */ else if (num.matches("[-+]?\\d+(.\\d+)?j")) {
+         */ else if (num.matches("[-+]?\\d+(\\.\\d+)?j")) {
 
             String stringImg = num.substring(0, num.length() - 1);
 

@@ -48,5 +48,5 @@ public class InsertionManagementTest {
             instance.execute(input);
         });
     }
-
+    
 }
