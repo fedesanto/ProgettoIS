@@ -4,8 +4,10 @@ import java.time.Duration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import progettoIS.gruppo01.Calculator.ButtonOp.StackCommander;
 import progettoIS.gruppo01.Calculator.Complex.ComplexNum;
 import progettoIS.gruppo01.Calculator.Complex.MathOperations;
+import progettoIS.gruppo01.Calculator.Structures.ComplexStack;
 import progettoIS.gruppo01.Exceptions.EmptyStackException;
 import progettoIS.gruppo01.Exceptions.FullStackException;
 import progettoIS.gruppo01.Exceptions.InsufficientNumbersException;
@@ -643,74 +645,299 @@ public class ComplexCalculatorTest {
      * Test of clear method, of class ComplexCalculator.
      */
     @Test
-    public void testClear() {
-        System.out.println("clear");
-        ComplexCalculator instance = new ComplexCalculator();
+    //test di clear nel caso in cui lo stack non sia vuoto
+    public void testClear1() throws FullStackException, EmptyStackException, UninitializedVariableException, SyntaxException {
+        
+        System.out.println("ComplexCalculator clear test typical");
+        
+        String input = "45.7 - 5.2j";
+        instance.parseInput(input);
+
+        input = "-34.8 - 62.1j";
+        instance.parseInput(input);
+
+        input = "45.7 + 17.3j";
+        instance.parseInput(input);
+       
         instance.clear();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+           
+        assertThrows(EmptyStackException.class , () -> { instance.drop();});
+        
+    }
+    
+    @Test
+    //test di clear nel caso in cui lo stack sia vuoto
+    public void testClear2() throws FullStackException, EmptyStackException, UninitializedVariableException, SyntaxException {
+        
+        System.out.println("ComplexCalculator clear test empty stack");
+       
+        instance.clear();
+           
+        assertThrows(EmptyStackException.class , () -> { instance.drop();});
+        
     }
 
     /**
      * Test of drop method, of class ComplexCalculator.
      */
+    
     @Test
-    public void testDrop() throws Exception {
-        System.out.println("drop");
-        ComplexCalculator instance = new ComplexCalculator();
+    //test di clear nel caso in cui lo stack non sia vuoto
+    public void testDrop1() throws FullStackException, EmptyStackException, UninitializedVariableException, SyntaxException {
+        
+        System.out.println("ComplexCalculator drop test typical");
+        
+        String input = "53";
+        instance.parseInput(input);
+        ComplexNum num1 = ComplexNum.parseComplex(input);
+        
+        input = "31.2j";
+        instance.parseInput(input);
+        ComplexNum num2 = ComplexNum.parseComplex(input);
+        
+        input = "3.09 + 40.3j";
+        instance.parseInput(input);
+        ComplexNum num3 = ComplexNum.parseComplex(input);
+        
         instance.drop();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        ComplexNum top = ComplexNum.parseComplex(instance.getLastNumbers()[1]);
+        
+        assertEquals(num2 , top);
+        
+    }
+  
+    @Test
+    //test di clear nel caso in cui lo stack sia vuoto
+    public void testDrop2() throws FullStackException, EmptyStackException, UninitializedVariableException, SyntaxException {
+        
+        System.out.println("ComplexCalculator drop test empty stack");
+        
+        assertThrows(EmptyStackException.class, () -> { instance.drop();});
+        
     }
 
     /**
      * Test of dup method, of class ComplexCalculator.
      */
+    
     @Test
-    public void testDup() throws Exception {
-        System.out.println("dup");
-        ComplexCalculator instance = new ComplexCalculator();
+    //test di dup nel caso in cui lo stack non sia vuoto
+    public void testDup1() throws Exception {
+        
+        System.out.println("ComplexCalculator dup test typical");
+        
+        String input = "73 - 98.54j";
+        instance.parseInput(input);
+        ComplexNum num1 = ComplexNum.parseComplex(input);
+        
+        input = "104 + 420.99j";
+        instance.parseInput(input);
+        ComplexNum num2 = ComplexNum.parseComplex(input);
+        
         instance.dup();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        ComplexNum top = ComplexNum.parseComplex(instance.getLastNumbers()[2]);
+        
+        assertEquals(num2 , top);
+        
+    }
+    
+    @Test
+    //test di dup nel caso in cui lo stack sia vuoto
+    public void testDup2() throws Exception {
+        
+        System.out.println("ComplexCalculator dup test empty stack");
+        
+        assertThrows(EmptyStackException.class , () -> { instance.dup(); });
+        
+    }
+    
+    @Test
+    //test di dup nel caso in cui lo stack sia pieno
+    public void testDup3() throws Exception {
+        
+        System.out.println("ComplexCalculator dup test full stack");
+        
+        for(int i = 0; i<MAX_CAPACITY; i++){
+            
+            String input = "56.7 - 21j";
+            instance.parseInput(input);
+            
+        }
+        
+        assertThrows(FullStackException.class , () -> { instance.dup(); });
+        
     }
 
     /**
      * Test of swap method, of class ComplexCalculator.
      */
+    
     @Test
-    public void testSwap() throws Exception {
-        System.out.println("swap");
-        ComplexCalculator instance = new ComplexCalculator();
+    //test di swap nel caso in cui lo stack non sia vuoto
+    public void testSwap1() throws Exception {
+        
+        System.out.println("ComplexCalculator swap test typical");
+        
+        String input = "-88.3 - 5j";
+        instance.parseInput(input);
+        ComplexNum num1 = ComplexNum.parseComplex(input);
+        
+        input = "69 + 12.1j";
+        instance.parseInput(input);
+        ComplexNum num2 = ComplexNum.parseComplex(input);
+        
         instance.swap();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        ComplexNum top = ComplexNum.parseComplex(instance.getLastNumbers()[1]);
+        
+        assertEquals(num1 , top);       
+        
+    }
+    
+    //test di swap nel caso in cui lo stack sia vuoto
+    public void testSwap2() {
+        
+        System.out.println("ComplexCalculator swap test empty stack");
+
+        assertThrows(InsufficientNumbersException.class , () -> { instance.swap(); });       
+        
+    }
+    
+    //test di swap nel caso in cui lo stack aabbia un solo elemento
+    public void testSwap3() throws FullStackException, EmptyStackException, UninitializedVariableException, SyntaxException {
+        
+        System.out.println("ComplexCalculator swap single element");
+
+        String input = "34";
+        instance.parseInput(input);
+        
+        assertThrows(InsufficientNumbersException.class , () -> { instance.swap(); });       
+        
     }
 
     /**
      * Test of over method, of class ComplexCalculator.
      */
+    
     @Test
-    public void testOver() throws Exception {
-        System.out.println("over");
-        ComplexCalculator instance = new ComplexCalculator();
+    //test di over nel caso lo stack non sia vuoto
+    public void testOver1() throws Exception {
+        
+        System.out.println("ComplexCalculator over test typical");
+        
+        String input = "-2.1 - 9j";
+        instance.parseInput(input);
+        ComplexNum num1 = ComplexNum.parseComplex(input);
+        
+        input = "77.1j";
+        instance.parseInput(input);
+        ComplexNum num2 = ComplexNum.parseComplex(input);
+        
         instance.over();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        ComplexNum top = ComplexNum.parseComplex(instance.getLastNumbers()[1]);
+        
+        assertEquals(num2 , top);
+        
+    }
+    
+    @Test
+    //test di over nel caso lo stack sia vuoto
+    public void testOver2() {
+        
+        System.out.println("ComplexCalculator over test empty");
+        
+        assertThrows(InsufficientNumbersException.class, () -> { instance.over(); });
+        
+    }
+    
+    @Test
+    //test di over nel caso lo stack sia pieno
+    public void testOver3() throws FullStackException, EmptyStackException, UninitializedVariableException, SyntaxException {
+        
+        System.out.println("ComplexCalculator over test full stack");
+        
+        for(int i = 0; i<MAX_CAPACITY; i++){
+            
+            String input = "96 - 6.9j";
+            instance.parseInput(input);
+            
+        }
+        
+        assertThrows(FullStackException.class, () -> { instance.over(); });
+        
     }
 
+    @Test
+    //test di over nel caso lo stack abbia un solo elemento all'interno
+    public void testOver4() throws FullStackException, EmptyStackException, UninitializedVariableException, SyntaxException {
+        
+        System.out.println("ComplexCalculator over test single element");
+            
+        String input = "-9 - 23j";
+        instance.parseInput(input);
+        
+        assertThrows(InsufficientNumbersException.class, () -> { instance.over(); });
+        
+    }
+    
     /**
      * Test of getLastNumbers method, of class ComplexCalculator.
      */
+   
     @Test
-    public void testGetLastNumbers() {
-        System.out.println("getLastNumbers");
-        ComplexCalculator instance = new ComplexCalculator();
+    //test di getLastNumbers nel caso che nello stack siano presenti lo stesso numero di elementi richiesti
+    public void testGetLastNumbers1() throws FullStackException, EmptyStackException, UninitializedVariableException, SyntaxException {
+        
+        System.out.println("ComplexCalculator getLastNumbers test request numbers and numbers in the stack are equal");
+        
+        for(int i = 0; i < 12 ; i++){
+            
+            String input = "32 - 43.2j";
+            instance.parseInput(input);
+            
+        }
+        
+        String[] expResult = {"32 - 43.2j","32 - 43.2j","32 - 43.2j","32 - 43.2j",
+                              "32 - 43.2j","32 - 43.2j","32 - 43.2j","32 - 43.2j",
+                              "32 - 43.2j","32 - 43.2j","32 - 43.2j","32 - 43.2j"};
+        
+        String[] result = instance.getLastNumbers();
+        
+        assertArrayEquals(expResult, result);
+        
+    }
+    
+    @Test
+    //test di getLastNumbers nel caso che nello stack siano presenti meno numeri di quelli richiesti
+    public void testGetLastNumbers2() throws FullStackException, EmptyStackException, UninitializedVariableException, SyntaxException {
+        
+        String input = "55.5 + 267.9j";
+        instance.parseInput(input);
+
+        
+        input = "221.1j";
+        instance.parseInput(input);
+
+        String[] expResult = {"55.5 + 267.9j","221.1j"};
+        String[] result = instance.getLastNumbers();
+        
+        assertArrayEquals(expResult, result);
+        
+    }
+    
+    @Test
+    //test di getLastNumbers nel caso che lo stack sia vuoto
+    public void testGetLastNumbers3() {
+       
+        System.out.println("ComplexCalculator getLastNumbers test empty stack");
+
         String[] expResult = null;
         String[] result = instance.getLastNumbers();
         assertArrayEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
 }

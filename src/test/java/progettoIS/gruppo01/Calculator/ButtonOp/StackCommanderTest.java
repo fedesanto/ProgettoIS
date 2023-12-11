@@ -185,6 +185,23 @@ public class StackCommanderTest {
         });
          
     }
+    
+    //Test stackSwap quando è presente un solo numero.
+    
+    @Test
+    public void testStackSwap3() throws FullStackException {
+        
+        System.out.println("Test stackSwap: stack con un solo elemento all'interno");
+        
+        ComplexNum num1 = new ComplexNum(8 , -24);
+        
+        stackNumeri.insert(num1);
+        
+        assertThrows(InsufficientNumbersException.class,() -> {
+            instance.stackSwap(); 
+        });
+         
+    }
 
     /**
      * Test of stackOver method, of class StackCommander.
@@ -242,6 +259,24 @@ public class StackCommanderTest {
         });
         
     }
+    
+    //Test stackOver quando è presente un solo numero nello stack.
+    
+    @Test
+    public void testStackOver4() throws FullStackException, InsufficientNumbersException, EmptyStackException {
+        
+        System.out.println("Test stackOver: stack con un solo elemento all'interno");
+        
+        ComplexNum num1 = new ComplexNum(-123 , 54.3);
+            
+        stackNumeri.insert(num1);
+        
+        assertThrows(InsufficientNumbersException.class,() -> {
+            instance.stackOver();
+        });
+        
+    }
+    
 
     /**
      * Test of getContent method, of class StackCommander.
