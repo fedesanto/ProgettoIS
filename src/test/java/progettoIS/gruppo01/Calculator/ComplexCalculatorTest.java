@@ -1,8 +1,12 @@
 package progettoIS.gruppo01.Calculator;
 
+import java.time.Duration;
+import java.util.concurrent.TimeUnit;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Timeout;
 import progettoIS.gruppo01.Calculator.Complex.ComplexNum;
 import progettoIS.gruppo01.Calculator.Complex.MathOperations;
 import progettoIS.gruppo01.Exceptions.EmptyStackException;
@@ -25,6 +29,7 @@ public class ComplexCalculatorTest {
     /**
      * Test of parseInput method, of class ComplexCalculator.
      */
+    
     /*
     test di parseInput nel caso di inserimento di un numero complesso con 
     parte reale e immaginaria, con stack non pieno
@@ -242,6 +247,70 @@ public class ComplexCalculatorTest {
             instance.parseInput("-d");
         });
     }
+    
+    
+    //test performance di parseInput nel caso di inserimento di un numero complesso
+    @Test
+    public void testParseInputPerformance1() {
+        System.out.println("ComplexCalculator parseInput test performance number");
+        
+        assertTimeout(Duration.ofMillis(100), () -> {
+            instance.parseInput("+167.5 - 23.6j");
+        });
+    }
+    
+    //test performance di parseInput nel caso di salvataggio su variabile
+    @Test
+    public void testParseInputPerformance2() throws FullStackException, EmptyStackException, UninitializedVariableException, SyntaxException {
+        System.out.println("ComplexCalculator parseInput test performance saveVar");
+        
+        instance.parseInput("45.89j");
+        
+        assertTimeout(Duration.ofMillis(100), () -> {
+            instance.parseInput(">w");
+        });
+    }
+    
+    //test performance di parseInput nel caso di inserimento da variabile
+    @Test
+    public void testParseInputPerformance3() throws FullStackException, EmptyStackException, UninitializedVariableException, SyntaxException{
+        System.out.println("ComplexCalculator parseInput test performance insVar");
+        
+        instance.parseInput("-17.94 - 3.0j");
+        instance.parseInput(">v"); 
+        
+        assertTimeout(Duration.ofMillis(100), () -> {
+            instance.parseInput("<v");
+        });
+    }
+    
+    //test performance di parseInput nel caso di addizione su variabile
+    @Test
+    public void testParseInputPerformance4() throws FullStackException, EmptyStackException, UninitializedVariableException, SyntaxException{
+        System.out.println("ComplexCalculator parseInput test performance addVar");
+        
+        instance.parseInput("-93.12");
+        instance.parseInput(">k"); 
+        instance.parseInput("-22.48 + 10.23j");
+        
+        assertTimeout(Duration.ofMillis(100), () -> {
+            instance.parseInput("+k");
+        });
+    }
+    
+    //test performance di parseInput nel caso di sottrazione su variabile
+    @Test
+    public void testParseInputPerformance5() throws FullStackException, EmptyStackException, UninitializedVariableException, SyntaxException{
+        System.out.println("ComplexCalculator parseInput test performance subVar");
+        
+        instance.parseInput("567.69 + 58.55j");
+        instance.parseInput(">j"); 
+        instance.parseInput("-99.0j");
+        
+        assertTimeout(Duration.ofMillis(100), () -> {
+            instance.parseInput("-j");
+        });
+    }
 
     /**
      * Test of add method, of class ComplexCalculator.
@@ -287,6 +356,19 @@ public class ComplexCalculatorTest {
             instance.add();
         });
     }
+    
+    //test performance di add
+    @Test
+    public void testAddPerformance() throws FullStackException, EmptyStackException, UninitializedVariableException, SyntaxException{
+        System.out.println("ComplexCalculator test performance add");
+        
+        instance.parseInput("0");
+        instance.parseInput("335.98 - 330.54j"); 
+        
+        assertTimeout(Duration.ofMillis(100), () -> {
+            instance.add();
+        });
+    }
 
     /**
      * Test of sub method, of class ComplexCalculator.
@@ -329,6 +411,19 @@ public class ComplexCalculatorTest {
         System.out.println("ComplexCalculator sub test insufficientnumbers(0)");
 
         assertThrows(InsufficientNumbersException.class, () -> {
+            instance.sub();
+        });
+    }
+    
+    //test performance di sub
+    @Test
+    public void testSubPerformance() throws FullStackException, EmptyStackException, UninitializedVariableException, SyntaxException{
+        System.out.println("ComplexCalculator test performance sub");
+        
+        instance.parseInput("-98.98 - 102.43j");
+        instance.parseInput("298.1 - 109.4j"); 
+        
+        assertTimeout(Duration.ofMillis(100), () -> {
             instance.sub();
         });
     }
@@ -393,6 +488,19 @@ public class ComplexCalculatorTest {
             instance.div();
         });
     }
+    
+    //test performance di div
+    @Test
+    public void testDivPerformance() throws FullStackException, EmptyStackException, UninitializedVariableException, SyntaxException{
+        System.out.println("ComplexCalculator test performance div");
+        
+        instance.parseInput("21.50 - 27.34j");
+        instance.parseInput("104.28 - 20.32j"); 
+        
+        assertTimeout(Duration.ofMillis(100), () -> {
+            instance.div();
+        });
+    }
 
     /**
      * Test of mul method, of class ComplexCalculator.
@@ -438,68 +546,102 @@ public class ComplexCalculatorTest {
             instance.mul();
         });
     }
-
     
+    //test performance di mul
+    @Test
+    public void testMulPerformance() throws FullStackException, EmptyStackException, UninitializedVariableException, SyntaxException{
+        System.out.println("ComplexCalculator test performance mul");
+        
+        instance.parseInput("-3.23j"); 
+        instance.parseInput("59.56"); 
+        
+        assertTimeout(Duration.ofMillis(100), () -> {
+            instance.mul();
+        });
+    }
+
     /**
      * Test of signInv method, of class ComplexCalculator.
      */
     @Test
     //test di singInv nel caso in cui lo stack non sia vuoto
-    public void testSignInv1() throws EmptyStackException, FullStackException, UninitializedVariableException, SyntaxException  {
+    public void testSignInv1() throws EmptyStackException, FullStackException, UninitializedVariableException, SyntaxException {
         System.out.println("ComplexCalculator signInv test typical");
-        
+
         String input = "42.45 - 67.34j";
         ComplexNum numInv = ComplexNum.parseComplex(input);
-        
+
         instance.parseInput(input);
-        
+
         instance.signInv();
-        
+
         ComplexNum ris = ComplexNum.parseComplex(instance.getLastNumbers()[0]);
-        assertEquals(MathOperations.invSegno(numInv),ris);
+        assertEquals(MathOperations.invSegno(numInv), ris);
     }
-    
+
     @Test
     //test di singInv nel caso in cui lo stack sia vuoto
-    public void testSignInv2() throws EmptyStackException, FullStackException, UninitializedVariableException, SyntaxException  {
+    public void testSignInv2() throws EmptyStackException, FullStackException, UninitializedVariableException, SyntaxException {
         System.out.println("ComplexCalculator signInv test empty stack");
-        
+
         assertThrows(EmptyStackException.class, () -> {
             instance.signInv();
         });
     }
-    
+
+    //test performance di signInv
+    @Test
+    public void testSignInvPerformance() throws FullStackException, EmptyStackException, UninitializedVariableException, SyntaxException{
+        System.out.println("ComplexCalculator test performance signInv");
+        
+        instance.parseInput("230.67 + 46.11j"); 
+        
+        assertTimeout(Duration.ofMillis(100), () -> {
+            instance.signInv();
+        });
+    }
     
     /**
      * Test of sqrt method, of class ComplexCalculator.
      */
-   @Test
+    @Test
     //test di sqrt nel caso in cui lo stack non sia vuoto
-    public void testSqrt1() throws EmptyStackException, FullStackException, UninitializedVariableException, SyntaxException  {
+    public void testSqrt1() throws EmptyStackException, FullStackException, UninitializedVariableException, SyntaxException {
         System.out.println("ComplexCalculator sqrt test typical");
-        
+
         String input = "-64.4";
         ComplexNum numInv = ComplexNum.parseComplex(input);
-        
+
         instance.parseInput(input);
-        
+
         instance.sqrt();
-        
+
         ComplexNum ris = ComplexNum.parseComplex(instance.getLastNumbers()[0]);
-        assertEquals(MathOperations.sqrt(numInv),ris);
+        assertEquals(MathOperations.sqrt(numInv), ris);
     }
-    
+
     @Test
     //test di sqrt nel caso in cui lo stack sia vuoto
-    public void testSqrt2() throws EmptyStackException, FullStackException, UninitializedVariableException, SyntaxException  {
+    public void testSqrt2() throws EmptyStackException, FullStackException, UninitializedVariableException, SyntaxException {
         System.out.println("ComplexCalculator sqrt test empty stack");
-        
+
         assertThrows(EmptyStackException.class, () -> {
             instance.sqrt();
         });
     }
     
-    
+    //test performance di signInv
+    @Test
+    public void testSqrtPerformance() throws FullStackException, EmptyStackException, UninitializedVariableException, SyntaxException{
+        System.out.println("ComplexCalculator test performance sqrt");
+        
+        instance.parseInput("-64.4 + 990.6j"); 
+        
+        assertTimeout(Duration.ofMillis(100), () -> {
+            instance.sqrt();
+        });
+    }
+
     /**
      * Test of clear method, of class ComplexCalculator.
      */
