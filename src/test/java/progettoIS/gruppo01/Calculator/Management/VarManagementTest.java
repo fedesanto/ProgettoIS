@@ -69,7 +69,7 @@ public class VarManagementTest {
         assertEquals(top, stack.top());
     }
 
-    //test di execute nel caso di "<x", con variabile inizializzata e stack  pieno
+    //test di execute nel caso di "<x", con variabile inizializzata e stack pieno
     @Test
     public void testExecuteIns2() throws FullStackException, EmptyStackException, UninitializedVariableException {
         System.out.println("VarManagement execute test insVar full stack");
