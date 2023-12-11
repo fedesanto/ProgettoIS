@@ -630,7 +630,7 @@ public class ComplexCalculatorTest {
         });
     }
     
-    //test performance di signInv
+    //test performance di sqrt
     @Test
     public void testSqrtPerformance() throws FullStackException, EmptyStackException, UninitializedVariableException, SyntaxException{
         System.out.println("ComplexCalculator test performance sqrt");
