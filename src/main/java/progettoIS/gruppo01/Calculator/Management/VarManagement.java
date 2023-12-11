@@ -66,7 +66,7 @@ public class VarManagement implements InputManagement{
     
     
     /*
-    Esegue l'operazione di sotrrazione nella variabile
+    Esegue l'operazione di sottrazione nella variabile
     Preleva un numero dallo stack, preleva il contenuto della variabile indicata
     sottrae i due numeri e scrive il risultato nella variabile indicata
     

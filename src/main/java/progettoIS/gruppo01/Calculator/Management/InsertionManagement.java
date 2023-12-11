@@ -17,7 +17,7 @@ public class InsertionManagement implements InputManagement{
     Metodo che si occupa dell'inserimento di un numero complesso,
     ricevuto sotto forma di stringa, all'interno dello stack.
     Crea un oggetto di tipo ComplexNum, effettuando il parsing della stringa ricevuta
-    dopodichè lo inseriesce all'interno dello stack
+    dopodichè lo inserisce all'interno dello stack
     
     Input:
         - String input, numero complesso espresso sotto forma di stringa
@@ -25,7 +25,7 @@ public class InsertionManagement implements InputManagement{
     @Override
     public void execute(String input) throws FullStackException{
     
-        ComplexNum num = ComplexNum.parseComplex(input); //Creo un nuovo numero complessp
+        ComplexNum num = ComplexNum.parseComplex(input); //Creo un nuovo numero complesso
         if(num != null)
             stackNumeri.insert(num);       //Lo inserisco all'interno dello stack*/
     }
