@@ -7,10 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import progettoIS.gruppo01.Calculator.Complex.ComplexNum;
 import progettoIS.gruppo01.Exceptions.UninitializedVariableException;
 
-/**
- *
- * @author Federico Santonicola
- */
+
 public class VarContainerTest {
     private VarContainer varC;
     
