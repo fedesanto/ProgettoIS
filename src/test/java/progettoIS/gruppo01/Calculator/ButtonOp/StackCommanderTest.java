@@ -297,8 +297,8 @@ public class StackCommanderTest {
         
         int num = 2;
         String[] expResult = {"5 - 13.9j","48 + 8.2j"};
-        String[] result = instance.getContent(num);
-        assertArrayEquals(expResult, result);
+        
+        assertArrayEquals(expResult, instance.getContent(num));
         
     }
     
@@ -317,8 +317,8 @@ public class StackCommanderTest {
         
         int num = 3;
         String[] expResult = {"-45.9 - 52.3j","11.8 + 113j"};
-        String[] result = instance.getContent(num);
-        assertArrayEquals(expResult, result);
+
+        assertArrayEquals(expResult, instance.getContent(num));
 
     }
     
@@ -330,10 +330,8 @@ public class StackCommanderTest {
         System.out.println("Test getContent: stack vuoto");
         
         int num = 10;
-        String[] expResult = null;
-        String[] result = instance.getContent(num);
-        assertArrayEquals(expResult, result);
-        
+
+        assertNull(instance.getContent(num));
         
     }
 
