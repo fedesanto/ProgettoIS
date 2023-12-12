@@ -980,7 +980,7 @@ public class ComplexCalculatorTest {
      * Test of getLastNumbers method, of class ComplexCalculator.
      */
     @Test
-    //test di getLastNumbers nel caso che nello stack siano presenti lo stesso numero di elementi richiesti
+    //test di getLastNumbers nel caso che nello stack siano presenti lo stesso numero di quelli richiesti
     public void testGetLastNumbers1() throws FullStackException, EmptyStackException, UninitializedVariableException, SyntaxException {
 
         System.out.println("ComplexCalculator getLastNumbers test request numbers and numbers in the stack are equal");
