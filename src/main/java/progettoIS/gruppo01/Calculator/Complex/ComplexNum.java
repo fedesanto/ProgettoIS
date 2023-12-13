@@ -51,6 +51,8 @@ public class ComplexNum {
         }
 
         if (imgPart == 0) {
+            if(strReal.equals("-0"))
+                return strReal.substring(1);
             return strReal;
         } else if (realPart == 0) {
             return strImg + "j";
