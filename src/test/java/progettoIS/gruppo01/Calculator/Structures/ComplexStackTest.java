@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
 package progettoIS.gruppo01.Calculator.Structures;
 
 
@@ -13,10 +9,7 @@ import progettoIS.gruppo01.Calculator.Complex.ComplexNum;
 import progettoIS.gruppo01.Exceptions.EmptyStackException;
 import progettoIS.gruppo01.Exceptions.FullStackException;
 
-/**
- *
- * @author miche
- */
+
 public class ComplexStackTest {
     
    private ComplexStack compS;

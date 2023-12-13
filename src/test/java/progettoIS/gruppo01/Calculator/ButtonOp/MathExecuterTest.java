@@ -5,7 +5,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import progettoIS.gruppo01.Calculator.Complex.ComplexNum;
 import progettoIS.gruppo01.Calculator.Complex.MathOperations;
-import static progettoIS.gruppo01.Calculator.Complex.MathOperations.somma;
 import progettoIS.gruppo01.Calculator.Structures.ComplexStack;
 import progettoIS.gruppo01.Exceptions.EmptyStackException;
 import progettoIS.gruppo01.Exceptions.FullStackException;
