@@ -7,15 +7,17 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.scene.image.Image;
 
 /**
  * JavaFX CalculatorApplication
  */
 public class CalculatorApplication extends Application {
     
-    private final String FXML_FILE = "xml_calcolatrice_v2.fxml";
+    private final String FXML_FILE = "xml_calcolatrice_v3.fxml";
     private final int SCENE_WIDTH = 380;
     private final int SCENE_HEIGHT = 460;
+    private final String ICON_FILE = "calculator_icon.png";
     
     @Override
     public void start(Stage stage) throws IOException {
@@ -26,6 +28,7 @@ public class CalculatorApplication extends Application {
         stage.setTitle("Complex Calculator");
         stage.setScene(scene);
         stage.setResizable(false);
+        stage.getIcons().add(new Image(getClass().getResourceAsStream(ICON_FILE)));
         stage.show();
     }
 

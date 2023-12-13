@@ -1,7 +1,7 @@
 package progettoIS.gruppo01.Calculator.Complex;
 
 public class MathOperations {
-
+    private static final double ROUND_CONSTANT = 1000.0;
     /*
     Metodo che gestisce la somma tra numeri complessi.
     Il numero complesso risultato presenta come parte reale la somma tra
@@ -82,8 +82,8 @@ public class MathOperations {
 
         divImgPart = (b * c - a * d) / denominatore;
 
-        return new ComplexNum(Math.round(divRealPart * 1000.0) / 1000.0, Math.round(divImgPart * 1000.0) / 1000.0);
-        // Math.round(num * 1000.0) / 1000.0 permette di arrotondare un double alla terza cifra decimale
+        return new ComplexNum(Math.round(divRealPart * ROUND_CONSTANT) / ROUND_CONSTANT, Math.round(divImgPart * ROUND_CONSTANT) / ROUND_CONSTANT);
+        // Math.round(num * ROUND_CONSTANT) / ROUND_CONSTANT permette di arrotondare un double alla terza cifra decimale
     }
 
     /*
@@ -112,8 +112,8 @@ public class MathOperations {
 
         mulImgPart = a * d + b * c;
 
-        return new ComplexNum(Math.round(mulRealPart * 1000.0) / 1000.0, Math.round(mulImgPart * 1000.0) / 1000.0);
-        // Math.round(num * 1000.0) / 1000.0 permette di arrotondare un double alla terza cifra decimale
+        return new ComplexNum(Math.round(mulRealPart * ROUND_CONSTANT) / ROUND_CONSTANT, Math.round(mulImgPart * ROUND_CONSTANT) / ROUND_CONSTANT);
+        // Math.round(num * ROUND_CONSTANT) / ROUND_CONSTANT permette di arrotondare un double alla terza cifra decimale
     }
 
     /*
@@ -141,8 +141,8 @@ public class MathOperations {
         sqrtRealPart = Math.sqrt((module + a) / 2.0);
         sqrtImgPart = Math.sqrt((module - a) / 2.0) * (b == 0 ? 1.0 : Math.signum(b));
 
-        return new ComplexNum(Math.round(sqrtRealPart * 1000.0) / 1000.0, Math.round(sqrtImgPart * 1000.0) / 1000.0);
-        // Math.round(num * 1000.0) / 1000.0 permette di arrotondare un double alla terza cifra decimale
+        return new ComplexNum(Math.round(sqrtRealPart * ROUND_CONSTANT) / ROUND_CONSTANT, Math.round(sqrtImgPart * ROUND_CONSTANT) / ROUND_CONSTANT);
+        // Math.round(num * ROUND_CONSTANT) / ROUND_CONSTANT permette di arrotondare un double alla terza cifra decimale
     }
 
     /*

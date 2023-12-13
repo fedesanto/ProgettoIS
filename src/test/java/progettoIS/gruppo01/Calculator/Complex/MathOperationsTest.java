@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class MathOperationsTest {
-
+    private final double ROUND_CONSTANT = 1000.0;
     /**
      * Test of somma method, of class MathOperations.
      */
@@ -137,8 +137,8 @@ public class MathOperationsTest {
         ComplexNum num1 = new ComplexNum(a, b);
         ComplexNum num2 = new ComplexNum(c, d);
         
-        double realPart = Math.round(((a*c + b*d)/(c*c + d*d))*1000.0)/1000.0;
-        double imgPart = Math.round(((b*c - a*d)/(c*c + d*d))*1000.0)/1000.0;
+        double realPart = Math.round(((a*c + b*d)/(c*c + d*d))*ROUND_CONSTANT)/ROUND_CONSTANT;
+        double imgPart = Math.round(((b*c - a*d)/(c*c + d*d))*ROUND_CONSTANT)/ROUND_CONSTANT;
         ComplexNum expResult = new ComplexNum(realPart, imgPart);
         
         ComplexNum result = MathOperations.divisione(num1, num2);
@@ -157,8 +157,8 @@ public class MathOperationsTest {
         ComplexNum num1 = new ComplexNum(a, b);
         ComplexNum num2 = new ComplexNum(c, d);
         
-        double realPart = Math.round(((a*c + b*d)/(c*c + d*d))*1000.0)/1000.0;
-        double imgPart = Math.round(((b*c - a*d)/(c*c + d*d))*1000.0)/1000.0;
+        double realPart = Math.round(((a*c + b*d)/(c*c + d*d))*ROUND_CONSTANT)/ROUND_CONSTANT;
+        double imgPart = Math.round(((b*c - a*d)/(c*c + d*d))*ROUND_CONSTANT)/ROUND_CONSTANT;
         ComplexNum expResult = new ComplexNum(realPart, imgPart);
         
         ComplexNum result = MathOperations.divisione(num1, num2);
@@ -176,8 +176,8 @@ public class MathOperationsTest {
         ComplexNum num1 = new ComplexNum(a, b);
         ComplexNum num2 = new ComplexNum(c, d);
         
-        double realPart = Math.round(((a*c + b*d)/(c*c + d*d))*1000.0)/1000.0;
-        double imgPart = Math.round(((b*c - a*d)/(c*c + d*d))*1000.0)/1000.0;
+        double realPart = Math.round(((a*c + b*d)/(c*c + d*d))*ROUND_CONSTANT)/ROUND_CONSTANT;
+        double imgPart = Math.round(((b*c - a*d)/(c*c + d*d))*ROUND_CONSTANT)/ROUND_CONSTANT;
         ComplexNum expResult = new ComplexNum(realPart, imgPart);
         
         ComplexNum result = MathOperations.divisione(num1, num2);
@@ -212,8 +212,8 @@ public class MathOperationsTest {
         ComplexNum num1 = new ComplexNum(a, b);
         ComplexNum num2 = new ComplexNum(c, d);
         
-        double realPart = Math.round((a*c - b*d)*1000.0)/1000.0;
-        double imgPart = Math.round((a*d + b*c)*1000.0)/1000.0;
+        double realPart = Math.round((a*c - b*d)*ROUND_CONSTANT)/ROUND_CONSTANT;
+        double imgPart = Math.round((a*d + b*c)*ROUND_CONSTANT)/ROUND_CONSTANT;
         ComplexNum expResult = new ComplexNum(realPart, imgPart);
         
         ComplexNum result = MathOperations.moltiplicazione(num1, num2);
@@ -232,8 +232,8 @@ public class MathOperationsTest {
         ComplexNum num1 = new ComplexNum(a, b);
         ComplexNum num2 = new ComplexNum(c, d);
         
-        double realPart = Math.round((a*c - b*d)*1000.0)/1000.0;
-        double imgPart = Math.round((a*d + b*c)*1000.0)/1000.0;
+        double realPart = Math.round((a*c - b*d)*ROUND_CONSTANT)/ROUND_CONSTANT;
+        double imgPart = Math.round((a*d + b*c)*ROUND_CONSTANT)/ROUND_CONSTANT;
         ComplexNum expResult = new ComplexNum(realPart, imgPart);
         
         ComplexNum result = MathOperations.moltiplicazione(num1, num2);
@@ -251,8 +251,8 @@ public class MathOperationsTest {
         ComplexNum num1 = new ComplexNum(a, b);
         ComplexNum num2 = new ComplexNum(c, d);
         
-        double realPart = Math.round((a*c - b*d)*1000.0)/1000.0;
-        double imgPart = Math.round((a*d + b*c)*1000.0)/1000.0;
+        double realPart = Math.round((a*c - b*d)*ROUND_CONSTANT)/ROUND_CONSTANT;
+        double imgPart = Math.round((a*d + b*c)*ROUND_CONSTANT)/ROUND_CONSTANT;
         ComplexNum expResult = new ComplexNum(realPart, imgPart);
         
         ComplexNum result = MathOperations.moltiplicazione(num1, num2);
@@ -270,7 +270,6 @@ public class MathOperationsTest {
         ComplexNum num1 = new ComplexNum(a, b);
         ComplexNum num2 = new ComplexNum(c, d);
         
-        double realPart = Math.round((a*c - b*d)*1000.0)/1000.0;
         ComplexNum expResult = new ComplexNum(0, 0);
 
         ComplexNum result = MathOperations.moltiplicazione(num1, num2);
@@ -290,8 +289,8 @@ public class MathOperationsTest {
         
         modulo = Math.sqrt(a*a + b*b);
         argomento =  Math.atan2(b,a);
-        double realPart = Math.round(Math.sqrt(modulo)*Math.cos(argomento/2.0)*1000.0)/1000.0;
-        double imgPart = Math.round(Math.sqrt(modulo)*Math.sin(argomento/2.0)*1000.0)/1000.0;
+        double realPart = Math.round(Math.sqrt(modulo)*Math.cos(argomento/2.0)*ROUND_CONSTANT)/ROUND_CONSTANT;
+        double imgPart = Math.round(Math.sqrt(modulo)*Math.sin(argomento/2.0)*ROUND_CONSTANT)/ROUND_CONSTANT;
         ComplexNum expResult = new ComplexNum(realPart, imgPart);
         
         ComplexNum result = MathOperations.sqrt(num);
@@ -308,8 +307,8 @@ public class MathOperationsTest {
         
         modulo = Math.sqrt(a*a + b*b);
         argomento =  Math.atan2(b,a);
-        double realPart = Math.round(Math.sqrt(modulo)*Math.cos(argomento/2.0)*1000.0)/1000.0;
-        double imgPart = Math.round(Math.sqrt(modulo)*Math.sin(argomento/2.0)*1000.0)/1000.0;
+        double realPart = Math.round(Math.sqrt(modulo)*Math.cos(argomento/2.0)*ROUND_CONSTANT)/ROUND_CONSTANT;
+        double imgPart = Math.round(Math.sqrt(modulo)*Math.sin(argomento/2.0)*ROUND_CONSTANT)/ROUND_CONSTANT;
         ComplexNum expResult = new ComplexNum(realPart, imgPart);
         
         ComplexNum result = MathOperations.sqrt(num);
@@ -326,8 +325,8 @@ public class MathOperationsTest {
         
         modulo = Math.sqrt(a*a + b*b);
         argomento = Math.atan2(b,a);
-        double realPart = Math.round(Math.sqrt(modulo)*Math.cos(argomento/2.0)*1000.0)/1000.0;
-        double imgPart = Math.round(Math.sqrt(modulo)*Math.sin(argomento/2.0)*1000.0)/1000.0;
+        double realPart = Math.round(Math.sqrt(modulo)*Math.cos(argomento/2.0)*ROUND_CONSTANT)/ROUND_CONSTANT;
+        double imgPart = Math.round(Math.sqrt(modulo)*Math.sin(argomento/2.0)*ROUND_CONSTANT)/ROUND_CONSTANT;
         ComplexNum expResult = new ComplexNum(realPart, imgPart);
         
         ComplexNum result = MathOperations.sqrt(num);
@@ -344,8 +343,8 @@ public class MathOperationsTest {
         
         modulo = Math.sqrt(a*a + b*b);
         argomento =  Math.atan2(b,a);
-        double realPart = Math.round(Math.sqrt(modulo)*Math.cos(argomento/2.0)*1000.0)/1000.0;
-        double imgPart = Math.round(Math.sqrt(modulo)*Math.sin(argomento/2.0)*1000.0)/1000.0;
+        double realPart = Math.round(Math.sqrt(modulo)*Math.cos(argomento/2.0)*ROUND_CONSTANT)/ROUND_CONSTANT;
+        double imgPart = Math.round(Math.sqrt(modulo)*Math.sin(argomento/2.0)*ROUND_CONSTANT)/ROUND_CONSTANT;
         ComplexNum expResult = new ComplexNum(realPart, imgPart);
         
         ComplexNum result = MathOperations.sqrt(num);

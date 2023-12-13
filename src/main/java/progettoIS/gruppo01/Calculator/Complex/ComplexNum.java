@@ -1,5 +1,7 @@
 package progettoIS.gruppo01.Calculator.Complex;
 
+import java.text.DecimalFormat;
+
 public class ComplexNum {
 
     private double realPart;        //Parte reale del numero complesso
@@ -32,7 +34,7 @@ public class ComplexNum {
     */
     @Override
     public String toString() {
-
+        
         String strReal = Double.toString(realPart);
         String strImg = Double.toString(imgPart);
 

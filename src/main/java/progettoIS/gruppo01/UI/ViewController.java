@@ -46,10 +46,11 @@ public class ViewController implements Initializable{
     @FXML
     private void inputEvent(ActionEvent event) {
         try{
-            String input = inputArea.getText();
-            
+            String input = inputArea.getText().trim();
             inputArea.clear();
-            calculator.parseInput(input);
+            
+            if(!input.isEmpty())
+                calculator.parseInput(input);
             
             updateView();
             errorArea.clear();
