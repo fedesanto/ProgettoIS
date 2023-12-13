@@ -314,26 +314,26 @@ public class ViewController implements Initializable{
     
     private void printMathError(){
         errorArea.setText("MATH ERROR\n"
-                        + "impossibile eseguire una divisione per 0");
+                        + "Impossibile eseguire una divisione per 0");
     }
     
     private void printFullStackError(){
         errorArea.setText("FULL STACK ERROR\n"
-                        + "svuotare lo stack di almeno una posizione");
+                        + "Svuotare lo stack di almeno una posizione");
     } 
     
     private void printEmptyStackError(){
         errorArea.setText("EMPTY STACK ERROR\n"
-                        + "inserire almeno un numero all'interno dello stack");
+                        + "Inserire almeno un numero all'interno dello stack");
     }
     
     private void printUninitializedVariableError(){
-        errorArea.setText("UNINITIALIZED VARIABILE ERROR\n"
-                        + "inizializzare la variabile indicata con un valore");
+        errorArea.setText("UNINITIALIZED VARIABLE ERROR\n"
+                        + "Inizializzare la variabile indicata con un valore");
     }
     
     private void printInsufficientNumbersError(){
         errorArea.setText("INSUFFICIENT NUMBERS ERROR\n"
-                        + "l'operazione richiesta necessita di almeno due numeri nello stack");
+                        + "L'operazione richiesta necessita di almeno due numeri nello stack");
     }
 }

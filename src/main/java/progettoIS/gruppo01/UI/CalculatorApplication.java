@@ -14,7 +14,7 @@ import javafx.scene.image.Image;
  */
 public class CalculatorApplication extends Application {
     
-    private final String FXML_FILE = "xml_calcolatrice_v3.fxml";
+    private final String FXML_FILE = "xml_calcolatrice.fxml";
     private final int SCENE_WIDTH = 380;
     private final int SCENE_HEIGHT = 460;
     private final String ICON_FILE = "calculator_icon.png";

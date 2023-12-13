@@ -6,12 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import progettoIS.gruppo01.Calculator.Complex.ComplexNum;
 import progettoIS.gruppo01.Calculator.Complex.MathOperations;
-import progettoIS.gruppo01.Exceptions.EmptyStackException;
-import progettoIS.gruppo01.Exceptions.FullStackException;
-import progettoIS.gruppo01.Exceptions.InsufficientNumbersException;
-import progettoIS.gruppo01.Exceptions.MathException;
-import progettoIS.gruppo01.Exceptions.SyntaxException;
-import progettoIS.gruppo01.Exceptions.UninitializedVariableException;
+import progettoIS.gruppo01.Exceptions.*;
 
 public class ComplexCalculatorTest {
 
@@ -606,14 +601,14 @@ public class ComplexCalculatorTest {
         System.out.println("ComplexCalculator sqrt test typical");
 
         String input = "-64.4";
-        ComplexNum numInv = ComplexNum.parseComplex(input);
+        ComplexNum numSqrt = ComplexNum.parseComplex(input);
 
         instance.parseInput(input);
 
         instance.sqrt();
 
         ComplexNum ris = ComplexNum.parseComplex(instance.getLastNumbers()[0]);
-        assertEquals(MathOperations.sqrt(numInv), ris);
+        assertEquals(MathOperations.sqrt(numSqrt), ris);
     }
 
     @Test
